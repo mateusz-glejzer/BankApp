@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.Bootstrapper", "BankApp.Bootstrapper\BankApp.Bootstrapper.csproj", "{A08E5EC3-5CCE-4BE5-BA60-728887457EAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{61D230AE-4E56-41E6-94AB-CCBB7DFD4B3E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrapper", "Bootstrapper", "{4DED83C8-F6D0-4D04-9E25-7BFDAC00AD1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{B3CE0053-BA7B-4E5E-8E70-DB71447FDFC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{BD958253-D2FB-4660-8907-C75CEBF0CEF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A08E5EC3-5CCE-4BE5-BA60-728887457EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A08E5EC3-5CCE-4BE5-BA60-728887457EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A08E5EC3-5CCE-4BE5-BA60-728887457EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A08E5EC3-5CCE-4BE5-BA60-728887457EAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4DED83C8-F6D0-4D04-9E25-7BFDAC00AD1E} = {61D230AE-4E56-41E6-94AB-CCBB7DFD4B3E}
+		{A08E5EC3-5CCE-4BE5-BA60-728887457EAA} = {4DED83C8-F6D0-4D04-9E25-7BFDAC00AD1E}
+		{B3CE0053-BA7B-4E5E-8E70-DB71447FDFC0} = {61D230AE-4E56-41E6-94AB-CCBB7DFD4B3E}
+		{BD958253-D2FB-4660-8907-C75CEBF0CEF3} = {61D230AE-4E56-41E6-94AB-CCBB7DFD4B3E}
+	EndGlobalSection
+EndGlobal
