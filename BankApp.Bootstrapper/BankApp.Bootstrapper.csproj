@@ -4,4 +4,9 @@
         <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\BankApp.Shared.Abstractions\BankApp.Shared.Abstractions.csproj" />
+      <ProjectReference Include="..\BankApp.Shared.Infrastructure\BankApp.Shared.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
