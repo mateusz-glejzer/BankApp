@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <RootNamespace>BankApp.Wallets.Infrastructure</RootNamespace>
+        <PackageId>BankApp.BankAccounts.Infrastructure</PackageId>
+    </PropertyGroup>
+
+</Project>
