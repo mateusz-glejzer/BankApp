@@ -1,4 +1,4 @@
-﻿namespace BankApp.BankAccounts.Domain.Accounts;
+﻿namespace BankApp.BankAccounts.Domain.Shared;
 
 public enum Currency
 {

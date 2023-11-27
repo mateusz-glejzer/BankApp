@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Transactions;
 using BankApp.BankAccounts.Domain.Shared;
 using BankApp.BankAccounts.Domain.Shared.DomainEvents;
+using BankApp.BankAccounts.Domain.Shared.Events;
+using BankApp.BankAccounts.Domain.Shared.Exceptions;
+using BankApp.BankAccounts.Domain.Transactions;
 
 namespace BankApp.BankAccounts.Domain.Accounts;
 
 public class Account : DomainEventsSource
 {
-    private List<Transaction> Transactions { get; set; }
-    private UserId UserId { get; init; }
     private AccountId AccountId { get; init; }
+    private UserId UserId { get; init; }
     private Currency Currency { get; init; }
-    private AccountState AccountState { get; init; }
+    private AccountState AccountState { get; set; }
 
     public Account(UserId userId, Currency currency, AccountId accountId = default)
     {
-        Transactions = new List<Transaction>();
+        // Transactions = new List<Transaction>();
         UserId = userId;
         Currency = currency;
         AccountId = accountId ?? new Guid();
@@ -25,19 +25,27 @@ public class Account : DomainEventsSource
 
     public void BlockAccount()
     {
+        AccountState = AccountState.Blocked;
     }
 
     public void UnblockAccount()
     {
+        AccountState = AccountState.Active;
     }
 
-    public void CreateTransaction()
+    public void CreateTransaction(UserId recipient, double amount)
     {
-        _domainEvents.Enqueue();
-    }
+        if (AccountState is AccountState.Blocked)
+        {
+            throw new AccountIsBlockedException();
+        }
 
-    public void OnReceivedTransaction(Transaction transaction)
-    {
-        Transactions.Add(transaction);
+        if (double.IsNegative(amount))
+        {
+            throw new TransactionAmountIsNotPositiveNumberException();
+        }
+
+        _domainEvents.Enqueue(
+            new TransactionCreatedEvent(new Transaction(recipient, UserId, amount, Currency)));
     }
 }
