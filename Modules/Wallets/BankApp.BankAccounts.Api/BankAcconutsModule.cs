@@ -1,16 +1,21 @@
 ﻿using BankApp.Shared.Abstractions.Modules;
+using BankApp.Wallets.Core.Extensions;
+using BankApp.Wallets.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BankApp.BankAccounts.Api;
 
-public class BankAccountsModule: IModule
+public class BankAccountsModule : IModule
 {
     public string Name => "BankAccounts";
     public string Path => "bank-accounts-module";
-    public void Register(IServiceCollection services)
+
+    public void Register(IServiceCollection services, IConfiguration configuration)
     {
-        throw new System.NotImplementedException();
+        services.AddCore(configuration);
+        services.AddInfrastructure(configuration);
     }
 
     public void Use(IApplicationBuilder app)

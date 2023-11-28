@@ -2,4 +2,4 @@
 
 namespace BankApp.BankAccounts.Domain.Shared.Events;
 
-public record TransactionCreatedEvent(Transaction Transaction) : IDomainEvent;
+public record TransactionCreatedDomainEvent(Transaction Transaction) : IDomainEvent;

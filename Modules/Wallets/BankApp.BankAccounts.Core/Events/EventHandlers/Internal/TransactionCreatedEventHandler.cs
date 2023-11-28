@@ -1,20 +1,21 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using BankApp.Wallets.Core.Events.IntegrationEvents;
+using BankApp.BankAccounts.Domain.Shared.Events;
+using BankApp.Wallets.Core.Events.DomainEvents;
 
 namespace BankApp.Wallets.Core.Events.EventHandlers.Internal;
 
-public class TransactionCreatedEventHandler : IEventHandler<TransactionCreatedIntegrationEvent>
+public class TransactionCreatedEventHandler : IDomainEventHandler<TransactionCreatedDomainEvent>
 {
-    private readonly IEventDispatcher _eventDispatcher;
+    private readonly IDomainEventDispatcher _eventDispatcher;
 
-    public TransactionCreatedEventHandler(IEventDispatcher eventDispatcher)
+    public TransactionCreatedEventHandler(IDomainEventDispatcher eventDispatcher)
     {
         _eventDispatcher = eventDispatcher;
     }
 
-    public async Task HandleAsync(TransactionCreatedIntegrationEvent @event,
-        CancellationToken cancellationToken = default)
+
+    public async Task HandleAsync(TransactionCreatedDomainEvent @event, CancellationToken cancellationToken = default)
     {
         await _eventDispatcher.PublishAsync(@event, cancellationToken);
     }

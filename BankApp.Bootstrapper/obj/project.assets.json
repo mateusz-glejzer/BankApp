@@ -253,6 +253,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "BankApp.BankAccounts.Core": "1.0.0",
+          "BankApp.BankAccounts.Infrastructure": "1.0.0",
           "BankApp.Shared.Abstractions": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
         },
@@ -261,6 +263,44 @@
         },
         "runtime": {
           "bin/placeholder/BankApp.BankAccounts.Api.dll": {}
+        }
+      },
+      "BankApp.BankAccounts.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "BankApp.BankAccounts.Domain": "1.0.0",
+          "BankApp.Shared.Abstractions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BankApp.BankAccounts.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankApp.BankAccounts.Core.dll": {}
+        }
+      },
+      "BankApp.BankAccounts.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/BankApp.BankAccounts.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankApp.BankAccounts.Domain.dll": {}
+        }
+      },
+      "BankApp.BankAccounts.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BankApp.BankAccounts.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankApp.BankAccounts.Infrastructure.dll": {}
         }
       },
       "BankApp.Shared.Abstractions/1.0.0": {
@@ -674,6 +714,21 @@
       "type": "project",
       "path": "../Modules/Wallets/BankApp.BankAccounts.Api/BankApp.BankAccounts.Api.csproj",
       "msbuildProject": "../Modules/Wallets/BankApp.BankAccounts.Api/BankApp.BankAccounts.Api.csproj"
+    },
+    "BankApp.BankAccounts.Core/1.0.0": {
+      "type": "project",
+      "path": "../Modules/Wallets/BankApp.BankAccounts.Core/BankApp.BankAccounts.Core.csproj",
+      "msbuildProject": "../Modules/Wallets/BankApp.BankAccounts.Core/BankApp.BankAccounts.Core.csproj"
+    },
+    "BankApp.BankAccounts.Domain/1.0.0": {
+      "type": "project",
+      "path": "../BankApp.BankAccounts.Domain/BankApp.BankAccounts.Domain.csproj",
+      "msbuildProject": "../BankApp.BankAccounts.Domain/BankApp.BankAccounts.Domain.csproj"
+    },
+    "BankApp.BankAccounts.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Modules/Wallets/BankApp.BankAccounts.Infrastructure/BankApp.BankAccounts.Infrastructure.csproj",
+      "msbuildProject": "../Modules/Wallets/BankApp.BankAccounts.Infrastructure/BankApp.BankAccounts.Infrastructure.csproj"
     },
     "BankApp.Shared.Abstractions/1.0.0": {
       "type": "project",
