@@ -24,11 +24,14 @@ public class Account : DomainEventsSource
     public void BlockAccount()
     {
         AccountState = AccountState.Blocked;
+
+        _domainEvents.Enqueue(new AccountBlockedDomainEvent(this));
     }
 
     public void UnblockAccount()
     {
         AccountState = AccountState.Active;
+        _domainEvents.Enqueue(new AccountUnblockedDomainEvent(this));
     }
 
     public void CreateTransaction(UserId recipient, double amount)
