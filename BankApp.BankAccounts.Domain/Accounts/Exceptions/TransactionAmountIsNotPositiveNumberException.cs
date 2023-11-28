@@ -1,8 +1,9 @@
-﻿using System;
+﻿namespace BankApp.BankAccounts.Domain.Accounts.Exceptions;
 
-namespace BankApp.BankAccounts.Domain.Accounts.Exceptions;
-
-public class TransactionAmountIsNotPositiveNumberException : Exception
+public class TransactionAmountIsNotPositiveNumberException : DomainException
 {
-    
+    public TransactionAmountIsNotPositiveNumberException() : base(
+        "Transaction amount should be a positive number.", ExceptionCategory.ValidationError)
+    {
+    }
 }
