@@ -3,6 +3,7 @@ using System.Reflection;
 using BankApp.Shared.Abstractions.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -10,11 +11,13 @@ namespace BankApp.Bootstrapper;
 
 public class Startup
 {
+    private readonly IConfiguration _configuration;
     private readonly IList<Assembly> _assemblies;
     private readonly IList<IModule> _modules;
 
-    public Startup()
+    public Startup(IConfiguration configuration)
     {
+        _configuration = configuration;
         _assemblies = ModuleLoader.LoadAssemblies();
         _modules = ModuleLoader.LoadModules(_assemblies);
     }
@@ -23,7 +26,7 @@ public class Startup
     {
         foreach (var module in _modules)
         {
-            module.Register(services);
+            module.Register(services, _configuration);
         }
     }
 
@@ -36,6 +39,7 @@ public class Startup
 
         applicationBuilder.UseRouting();
         applicationBuilder.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+        
         _assemblies.Clear();
         _modules.Clear();
     }
