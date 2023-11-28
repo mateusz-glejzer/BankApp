@@ -97,8 +97,8 @@
               "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\BankApp.Shared.Infrastructure\\BankApp.Shared.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\BankApp.Shared.Infrastructure\\BankApp.Shared.Infrastructure.csproj"
               },
-              "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj": {
-                "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj"
+              "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj": {
+                "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj"
               }
             }
           }
@@ -277,14 +277,14 @@
         }
       }
     },
-    "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj": {
+    "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj",
+        "projectUniqueName": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj",
         "projectName": "BankApp.BankAccounts.Api",
-        "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj",
+        "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj",
         "packagesPath": "C:\\Users\\MateuszGlejzer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Api\\obj\\",
+        "outputPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -308,11 +308,11 @@
               "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\BankApp.Shared.Abstractions\\BankApp.Shared.Abstractions.csproj": {
                 "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\BankApp.Shared.Abstractions\\BankApp.Shared.Abstractions.csproj"
               },
-              "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj": {
-                "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj"
+              "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj": {
+                "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj"
               },
-              "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj"
+              "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj"
               }
             }
           }
@@ -352,14 +352,14 @@
         }
       }
     },
-    "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj": {
+    "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj",
+        "projectUniqueName": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj",
         "projectName": "BankApp.BankAccounts.Core",
-        "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj",
+        "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Core\\BankApp.BankAccounts.Core.csproj",
         "packagesPath": "C:\\Users\\MateuszGlejzer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Core\\obj\\",
+        "outputPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -385,6 +385,9 @@
               },
               "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\BankApp.Shared.Abstractions\\BankApp.Shared.Abstractions.csproj": {
                 "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\BankApp.Shared.Abstractions\\BankApp.Shared.Abstractions.csproj"
+              },
+              "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Domain\\BankApp.BankAccounts.Domain.csproj": {
+                "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Domain\\BankApp.BankAccounts.Domain.csproj"
               }
             }
           }
@@ -418,14 +421,73 @@
         }
       }
     },
-    "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj": {
+    "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Domain\\BankApp.BankAccounts.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj",
-        "projectName": "BankApp.BankAccounts.Infrastructure",
-        "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Domain\\BankApp.BankAccounts.Domain.csproj",
+        "projectName": "BankApp.BankAccounts.Domain",
+        "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Domain\\BankApp.BankAccounts.Domain.csproj",
         "packagesPath": "C:\\Users\\MateuszGlejzer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\MateuszGlejzer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj",
+        "projectName": "BankApp.BankAccounts.Infrastructure",
+        "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Infrastructure\\BankApp.BankAccounts.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\MateuszGlejzer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\BankAccounts\\BankApp.BankAccounts.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
