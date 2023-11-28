@@ -2,6 +2,39 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.Text.Encodings.Web": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.Configuration/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -216,6 +249,20 @@
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
+      "BankApp.BankAccounts.Api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "BankApp.Shared.Abstractions": "1.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
+        },
+        "compile": {
+          "bin/placeholder/BankApp.BankAccounts.Api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankApp.BankAccounts.Api.dll": {}
+        }
+      },
       "BankApp.Shared.Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -248,6 +295,32 @@
     }
   },
   "libraries": {
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "sha512": "Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.xml",
+        "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "sha512": "ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
+        "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.nuspec"
+      ]
+    },
     "Microsoft.Extensions.Configuration/7.0.0": {
       "sha512": "tldQUBWt/xeH2K7/hMPPo5g8zuLc3Ro9I5d4o/XrxvxOCA2EZBtW7bCHHTc49fcBtvB8tLAb/Qsmfrq+2SJ4vA==",
       "type": "package",
@@ -597,6 +670,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "BankApp.BankAccounts.Api/1.0.0": {
+      "type": "project",
+      "path": "../Modules/Wallets/BankApp.BankAccounts.Api/BankApp.BankAccounts.Api.csproj",
+      "msbuildProject": "../Modules/Wallets/BankApp.BankAccounts.Api/BankApp.BankAccounts.Api.csproj"
+    },
     "BankApp.Shared.Abstractions/1.0.0": {
       "type": "project",
       "path": "../BankApp.Shared.Abstractions/BankApp.Shared.Abstractions.csproj",
@@ -610,6 +688,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "BankApp.BankAccounts.Api >= 1.0.0",
       "BankApp.Shared.Abstractions >= 1.0.0",
       "BankApp.Shared.Infrastructure >= 1.0.0"
     ]
@@ -651,6 +730,9 @@
             },
             "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\BankApp.Shared.Infrastructure\\BankApp.Shared.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\BankApp.Shared.Infrastructure\\BankApp.Shared.Infrastructure.csproj"
+            },
+            "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj": {
+              "projectPath": "C:\\Users\\MateuszGlejzer\\Desktop\\BankApp\\BankApp\\Modules\\Wallets\\BankApp.BankAccounts.Api\\BankApp.BankAccounts.Api.csproj"
             }
           }
         }

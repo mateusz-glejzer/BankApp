@@ -1,8 +1,7 @@
 ﻿using System;
+using BankApp.BankAccounts.Domain.Accounts.Exceptions;
 using BankApp.BankAccounts.Domain.Shared;
-using BankApp.BankAccounts.Domain.Shared.DomainEvents;
 using BankApp.BankAccounts.Domain.Shared.Events;
-using BankApp.BankAccounts.Domain.Shared.Exceptions;
 using BankApp.BankAccounts.Domain.Transactions;
 
 namespace BankApp.BankAccounts.Domain.Accounts;
@@ -16,7 +15,6 @@ public class Account : DomainEventsSource
 
     public Account(UserId userId, Currency currency, AccountId accountId = default)
     {
-        // Transactions = new List<Transaction>();
         UserId = userId;
         Currency = currency;
         AccountId = accountId ?? new Guid();

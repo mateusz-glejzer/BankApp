@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BankApp.BankAccounts.Domain.Shared.Exceptions;
+namespace BankApp.BankAccounts.Domain.Accounts.Exceptions;
 
 public class TransactionAmountIsNotPositiveNumberException : Exception
 {

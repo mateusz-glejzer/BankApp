@@ -1,6 +1,8 @@
-﻿namespace BankApp.BankAccounts.Domain.Accounts.Exceptions;
+﻿using System;
 
-public class AccountIsBlockedException
+namespace BankApp.BankAccounts.Domain.Accounts.Exceptions;
+
+public class AccountIsBlockedException : Exception
 {
     
 }

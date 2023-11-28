@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace BankApp.BankAccounts.Domain.Shared.DomainEvents;
+namespace BankApp.BankAccounts.Domain.Shared.Events;
 
 public abstract class DomainEventsSource
 {
