@@ -1,4 +1,4 @@
-﻿using System.Transactions;
+﻿using BankApp.BankAccounts.Domain.Transactions;
 
 namespace BankApp.Wallets.Core.Events.IntegrationEvents;
 

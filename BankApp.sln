@@ -38,6 +38,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.BankAccounts.Core",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.BankAccounts.Infrastructure", "Modules\BankAccounts\BankApp.BankAccounts.Infrastructure\BankApp.BankAccounts.Infrastructure.csproj", "{57F2AFBF-45CD-4F19-802F-2589B5C439C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.Transactions.Core", "BankApp.Transactions.Core\BankApp.Transactions.Core.csproj", "{5EFC6A95-B075-4A91-AC66-F8A440F9FA6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.Transactions.Api", "BankApp.Transactions.Api\BankApp.Transactions.Api.csproj", "{91544D42-0420-4457-B88F-12C050670BF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp.Transactions.Infrastructure", "BankApp.Transactions.Infrastructure\BankApp.Transactions.Infrastructure.csproj", "{59FA5992-E027-4B42-B98C-7B411F45B5D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +78,18 @@ Global
 		{57F2AFBF-45CD-4F19-802F-2589B5C439C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57F2AFBF-45CD-4F19-802F-2589B5C439C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57F2AFBF-45CD-4F19-802F-2589B5C439C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EFC6A95-B075-4A91-AC66-F8A440F9FA6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EFC6A95-B075-4A91-AC66-F8A440F9FA6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EFC6A95-B075-4A91-AC66-F8A440F9FA6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EFC6A95-B075-4A91-AC66-F8A440F9FA6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91544D42-0420-4457-B88F-12C050670BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91544D42-0420-4457-B88F-12C050670BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91544D42-0420-4457-B88F-12C050670BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91544D42-0420-4457-B88F-12C050670BF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59FA5992-E027-4B42-B98C-7B411F45B5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59FA5992-E027-4B42-B98C-7B411F45B5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59FA5992-E027-4B42-B98C-7B411F45B5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59FA5992-E027-4B42-B98C-7B411F45B5D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4DED83C8-F6D0-4D04-9E25-7BFDAC00AD1E} = {61D230AE-4E56-41E6-94AB-CCBB7DFD4B3E}
@@ -92,5 +110,8 @@ Global
 		{B06CCFB6-296E-4842-BB42-EBD2CC2F7554} = {C4DA61E7-2FEF-41A0-91A2-4A7031483BBB}
 		{DC154A48-FBAC-4A9B-8904-6E9A9A7220CC} = {C4DA61E7-2FEF-41A0-91A2-4A7031483BBB}
 		{57F2AFBF-45CD-4F19-802F-2589B5C439C6} = {C4DA61E7-2FEF-41A0-91A2-4A7031483BBB}
+		{5EFC6A95-B075-4A91-AC66-F8A440F9FA6D} = {3731B2BD-B765-49DE-879A-83B38F4641D4}
+		{91544D42-0420-4457-B88F-12C050670BF9} = {3731B2BD-B765-49DE-879A-83B38F4641D4}
+		{59FA5992-E027-4B42-B98C-7B411F45B5D7} = {3731B2BD-B765-49DE-879A-83B38F4641D4}
 	EndGlobalSection
 EndGlobal

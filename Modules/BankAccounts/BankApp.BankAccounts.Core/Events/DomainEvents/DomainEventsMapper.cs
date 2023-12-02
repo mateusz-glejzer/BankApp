@@ -1,5 +1,6 @@
 ﻿using System;
 using BankApp.BankAccounts.Domain.Shared.Events;
+using BankApp.Wallets.Core.Events.IntegrationEvents;
 
 namespace BankApp.Wallets.Core.Events.DomainEvents;
 
@@ -9,6 +10,7 @@ public static class DomainEventsMapper
     {
         return domainEvent switch
         {
+            TransactionCreatedDomainEvent @event => new TransactionCreatedIntegrationEvent(@event.Transaction),
             _ => throw new NotSupportedException($"{domainEvent.GetType().Name} cannot be mapped")
         };
     }

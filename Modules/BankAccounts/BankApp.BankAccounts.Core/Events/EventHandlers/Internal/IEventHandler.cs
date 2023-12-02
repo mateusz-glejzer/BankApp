@@ -4,7 +4,7 @@ using BankApp.BankAccounts.Domain.Shared.Events;
 
 namespace BankApp.Wallets.Core.Events.EventHandlers.Internal;
 
-public interface IDomainEventHandler<in TEvent> where TEvent : class, IDomainEvent
+public interface IEventHandler<in TEvent> where TEvent : class, IDomainEvent
 {
     Task HandleAsync(TEvent @event, CancellationToken cancellationToken = default);
 }

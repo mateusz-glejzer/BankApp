@@ -16,10 +16,10 @@ public class Transaction
         Date = date ?? DateTime.UtcNow;
     }
 
-    private Guid TransactionId { get; init; }
-    private UserId Recipient { get; init; }
-    private UserId Sender { get; init; }
-    private double Amount { get; init; }
-    private Currency Currency { get; init; }
-    private DateTime Date { get; init; }
+    public TransactionId TransactionId { get; init; }
+    public UserId Recipient { get; init; }
+    public UserId Sender { get; init; }
+    public double Amount { get; init; }
+    public Currency Currency { get; init; }
+    public DateTime Date { get; init; }
 }

@@ -12,4 +12,5 @@ public interface IModule
     IEnumerable<string> Policies => null;
     void Register(IServiceCollection services, IConfiguration configuration);
     void Use(IApplicationBuilder app);
+    IReadOnlyList<EndpointInfo> GetEndpoints();
 }

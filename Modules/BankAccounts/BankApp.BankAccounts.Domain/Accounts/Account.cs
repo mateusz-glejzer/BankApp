@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BankApp.BankAccounts.Domain.Accounts.Exceptions;
 using BankApp.BankAccounts.Domain.Shared;
 using BankApp.BankAccounts.Domain.Shared.Events;
@@ -8,17 +9,19 @@ namespace BankApp.BankAccounts.Domain.Accounts;
 
 public class Account : DomainEventsSource
 {
-    private AccountId AccountId { get; init; }
-    private UserId UserId { get; init; }
-    private Currency Currency { get; init; }
-    private AccountState AccountState { get; set; }
+    public AccountId AccountId { get; private set; }
+    public UserId UserId { get; private set; }
+    public List<TransactionId> Transactions { get; private set; }
+    public Currency Currency { get; private set; }
+    public AccountState AccountState { get; private set; }
 
-    public Account(UserId userId, Currency currency, AccountId accountId = default)
+    public Account(UserId userId, Currency currency, List<TransactionId> transactions, AccountId accountId = default)
     {
         UserId = userId;
         Currency = currency;
-        AccountId = accountId ?? new Guid();
         AccountState = AccountState.Active;
+        AccountId = accountId ?? new Guid();
+        Transactions = transactions ?? new List<TransactionId>();
     }
 
     public void BlockAccount()
@@ -46,7 +49,9 @@ public class Account : DomainEventsSource
             throw new TransactionAmountIsNotPositiveNumberException();
         }
 
+        var transaction = new Transaction(recipient, UserId, amount, Currency);
+        Transactions.Add(transaction.TransactionId);
         _domainEvents.Enqueue(
-            new TransactionCreatedDomainEvent(new Transaction(recipient, UserId, amount, Currency)));
+            new TransactionCreatedDomainEvent(this, transaction));
     }
 }

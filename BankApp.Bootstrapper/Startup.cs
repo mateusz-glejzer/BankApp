@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using BankApp.Shared.Abstractions.Modules;
+﻿using BankApp.BankAccounts.Api;
+using BankApp.Transactions.Api;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -12,22 +11,18 @@ namespace BankApp.Bootstrapper;
 public class Startup
 {
     private readonly IConfiguration _configuration;
-    private readonly IList<Assembly> _assemblies;
-    private readonly IList<IModule> _modules;
 
     public Startup(IConfiguration configuration)
     {
         _configuration = configuration;
-        _assemblies = ModuleLoader.LoadAssemblies();
-        _modules = ModuleLoader.LoadModules(_assemblies);
     }
+
 
     public void ConfigureServices(IServiceCollection services)
     {
-        foreach (var module in _modules)
-        {
-            module.Register(services, _configuration);
-        }
+        ModulesExtensions.RegisterModule<BankAccountsModule>();
+        ModulesExtensions.RegisterModule<TransactionsModule>();
+        services.AddModules(_configuration);
     }
 
     public void Configure(IApplicationBuilder applicationBuilder, IWebHostEnvironment environment)
@@ -38,9 +33,6 @@ public class Startup
         }
 
         applicationBuilder.UseRouting();
-        applicationBuilder.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-        
-        _assemblies.Clear();
-        _modules.Clear();
+        applicationBuilder.UseEndpoints(ModulesExtensions.MapModulesEndpoints);
     }
 }
