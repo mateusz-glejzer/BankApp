@@ -10,7 +10,8 @@ public static class DomainEventsMapper
     {
         return domainEvent switch
         {
-            TransactionCreatedDomainEvent @event => new TransactionCreatedIntegrationEvent(@event.Transaction),
+            TransactionCreatedDomainEvent @event => new TransactionCreatedIntegrationEvent(@event.AccountId,
+                @event.Transaction),
             _ => throw new NotSupportedException($"{domainEvent.GetType().Name} cannot be mapped")
         };
     }

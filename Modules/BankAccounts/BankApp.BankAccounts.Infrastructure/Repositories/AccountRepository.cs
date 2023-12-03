@@ -5,7 +5,7 @@ using BankApp.BankAccounts.Domain.Accounts;
 using BankApp.BankAccounts.Domain.Accounts.Repository;
 using Microsoft.EntityFrameworkCore;
 
-namespace BankApp.Wallets.Infrastructure;
+namespace BankApp.Wallets.Infrastructure.Repositories;
 
 public class AccountRepository : IAccountRepository
 {

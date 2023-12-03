@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using BankApp.Wallets.Core.Events;
+﻿using System.Threading.Tasks;
 
 namespace BankApp.Wallets.Core;
 
 public interface IMessageBroker
 {
-    Task PublishAsync(IEnumerable<IEvent> events);
+    Task PublishAsync<T>(T message, string messageId = null) where T : class;
 }
