@@ -48,6 +48,6 @@ public class Account : DomainEventsSource
 
         var transaction = new Transaction(recipient, UserId, amount, Currency);
         _domainEvents.Enqueue(
-            new TransactionCreatedDomainEvent(this, transaction));
+            new TransactionCreatedDomainEvent(AccountId, transaction));
     }
 }

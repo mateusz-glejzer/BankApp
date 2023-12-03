@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BankApp.Wallets.Core.Commands;
 
-internal sealed class CommandDispatcher : ICommandDispatcher
+internal class CommandDispatcher : ICommandDispatcher
 {
     private readonly IServiceProvider _serviceProvider;
 
