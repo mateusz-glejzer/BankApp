@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
 using BankApp.Shared.Abstractions.Modules;
+using BankApp.Wallets.Core.Commands;
 using BankApp.Wallets.Core.Extensions;
 using BankApp.Wallets.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,8 +32,12 @@ public class BankAccountsModule : IModule
     {
         return new[]
         {
-            new EndpointInfo("", HttpMethod.Get, () => ""),
-            new EndpointInfo("", HttpMethod.Post, (HttpContext context) => { }),
+            new EndpointInfo("userAccounts", HttpMethod.Get, () => "hello"),
+            new EndpointInfo("account/create-transaction", HttpMethod.Post,
+                ([FromBody] CreateTransactionCommand request, [FromServices] ICommandDispatcher commandDispatcher) =>
+                {
+                    commandDispatcher.SendAsync(request);
+                }),
         };
     }
 }

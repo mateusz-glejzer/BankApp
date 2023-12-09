@@ -6,6 +6,5 @@ public interface ITransactionsRepository
 {
     Task AddTransactionAsync(Transaction transaction);
     Task<Transaction> GetTransactionById(Guid transactionId);
-    Task<IReadOnlyList<Transaction>> GetTransactionsByRecipientId(UserId recipientId);
-    Task<IReadOnlyList<Transaction>> GetTransactionsBySenderId(UserId senderId);
+    Task<IReadOnlyList<Transaction>> GetTransactionsByAccountId(UserId recipientId);
 }

@@ -30,15 +30,11 @@ public class TransactionRepository : ITransactionsRepository
         return transaction;
     }
 
-    public async Task<IReadOnlyList<Transaction>> GetTransactionsByRecipientId(UserId recipientId)
+    public async Task<IReadOnlyList<Transaction>> GetTransactionsByAccountId(UserId recipientId)
     {
-        return await _dbContext.Transactions.Where(transaction => transaction.Recipient.Id == recipientId)
-            .ToListAsync();
-    }
-
-    public async Task<IReadOnlyList<Transaction>> GetTransactionsBySenderId(UserId senderId)
-    {
-        return await _dbContext.Transactions.Where(transaction => transaction.Sender.Id == senderId)
+        return await _dbContext.Transactions.Where(transaction =>
+                transaction.Sender.Id == recipientId || transaction.Sender.Id == recipientId)
+            .OrderBy(transaction => transaction.Date)
             .ToListAsync();
     }
 }

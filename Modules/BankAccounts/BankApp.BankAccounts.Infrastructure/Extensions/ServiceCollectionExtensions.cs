@@ -1,4 +1,6 @@
 ﻿using BankApp.BankAccounts.Domain.Accounts.Repository;
+using BankApp.Wallets.Core;
+using BankApp.Wallets.Infrastructure.Db;
 using BankApp.Wallets.Infrastructure.Outbox;
 using BankApp.Wallets.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
@@ -12,9 +14,12 @@ public static class ServiceCollectionExtensions
     {
         // TODO add connection string for postgresql
         services.AddDbContext<AccountsDbContext>();
-        services.AddHostedService<OutboxProcessor>();
+        // services.AddHostedService<OutboxProcessor>();
         services.AddScoped<IMessageOutbox, MessageOutbox>();
+        services.AddScoped<IMessageBroker, MessageBroker>();
         services.AddScoped<IAccountRepository, AccountRepository>();
+        services.AddScoped<OutboxRepository>();
+        services.AddScoped<IBusPublisher, KafkaPublisher>();
         return services;
     }
 }

@@ -12,7 +12,7 @@ public static class ModulesExtensions
 {
     private static Dictionary<string, IModule> RegisteredModules = new();
 
-    public static void MapModulesEndpoints(IEndpointRouteBuilder endpointRouteBuilder)
+    public static void MapModulesEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
         foreach (var module in RegisteredModules.Values)
         {
@@ -22,7 +22,7 @@ public static class ModulesExtensions
 
                 endpointRouteBuilder.MapMethods(
                     pattern: endpointRoute,
-                    httpMethods: new[] { endpoint.HttpVerb.ToString().ToUpper() },
+                    httpMethods: new[] { "GET", },
                     handler: endpoint.Handler);
             }
         }

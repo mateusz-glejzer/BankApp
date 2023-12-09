@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using BankApp.BankAccounts.Domain.Accounts;
 using BankApp.BankAccounts.Domain.Accounts.Repository;
+using BankApp.Wallets.Infrastructure.Db;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankApp.Wallets.Infrastructure.Repositories;
@@ -16,7 +17,7 @@ public class AccountRepository : IAccountRepository
         _dbContext = dbContext;
     }
 
-    public async Task AddAccount(Account account, CancellationToken cancellationToken = default)
+    public async Task AddAccountAsync(Account account, CancellationToken cancellationToken = default)
     {
         await _dbContext.Accounts.AddAsync(account, cancellationToken);
     }
