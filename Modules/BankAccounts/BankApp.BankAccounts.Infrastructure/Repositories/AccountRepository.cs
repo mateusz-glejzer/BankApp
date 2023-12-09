@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using BankApp.BankAccounts.Domain.Accounts;
 using BankApp.BankAccounts.Domain.Accounts.Repository;
+using BankApp.BankAccounts.Domain.Shared;
 using BankApp.Wallets.Infrastructure.Db;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +22,13 @@ public class AccountRepository : IAccountRepository
     public async Task AddAccountAsync(Account account, CancellationToken cancellationToken = default)
     {
         await _dbContext.Accounts.AddAsync(account, cancellationToken);
+    }
+
+    public async Task<IReadOnlyList<Account>> GetUserAccounts(UserId userId,
+        CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Accounts.Where(account => account.UserId == userId)
+            .ToListAsync(cancellationToken: cancellationToken);
     }
 
     public async Task<Account> GetAccountByIdAsync(AccountId accountId, CancellationToken cancellationToken = default)

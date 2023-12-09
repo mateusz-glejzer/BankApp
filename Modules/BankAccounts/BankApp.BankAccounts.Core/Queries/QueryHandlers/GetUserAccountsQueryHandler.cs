@@ -1,12 +1,23 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using BankApp.BankAccounts.Domain.Accounts;
+using BankApp.BankAccounts.Domain.Accounts.Repository;
 
 namespace BankApp.Wallets.Core.Queries.QueryHandlers;
 
-public class GetUserAccountsQueryHandler : IQueryHandler<GetUserAccountsQuery>
+public class GetUserAccountsQueryHandler : IQueryHandler<GetUserAccountsQuery, IReadOnlyList<Account>>
 {
-    public Task HandleAsync(GetUserAccountsQuery query, CancellationToken cancellationToken = default)
+    private readonly IAccountRepository _accountRepository;
+
+    public GetUserAccountsQueryHandler(IAccountRepository accountRepository)
     {
-        throw new System.NotImplementedException();
+        _accountRepository = accountRepository;
+    }
+
+    public async Task<IReadOnlyList<Account>> HandleAsync(GetUserAccountsQuery query,
+        CancellationToken cancellationToken = default)
+    {
+        return await _accountRepository.GetUserAccounts(query.UserId, cancellationToken);
     }
 }
