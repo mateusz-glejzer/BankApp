@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BankApp.Wallets.Infrastructure.Repositories;
+using BankApp.BankAccounts.Infrastructure.Repositories;
+using Newtonsoft.Json;
 
-namespace BankApp.Wallets.Infrastructure.Outbox;
+namespace BankApp.BankAccounts.Infrastructure.Outbox;
 
 public class MessageOutbox : IMessageOutbox
 {
@@ -16,10 +17,11 @@ public class MessageOutbox : IMessageOutbox
 
     public async Task SendAsync<T>(T message, Guid messageId) where T : class
     {
+        var serializedMessage =JsonConvert.SerializeObject(message);
         await _outboxRepository.AddAsync(new OutboxMessage
         {
             MessageId = messageId,
-            Message = message,
+            SerializedMessage = serializedMessage,
             MessageType = ((T)message)?.GetType().AssemblyQualifiedName,
             SentAt = DateTime.UtcNow
         });

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using BankApp.Wallets.Infrastructure.Outbox;
+using BankApp.BankAccounts.Infrastructure.Outbox;
 using Confluent.Kafka;
 
-namespace BankApp.Wallets.Infrastructure;
+namespace BankApp.BankAccounts.Infrastructure;
 
 public class KafkaPublisher : IBusPublisher
 {

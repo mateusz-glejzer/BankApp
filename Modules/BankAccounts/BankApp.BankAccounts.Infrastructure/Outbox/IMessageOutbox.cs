@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BankApp.Wallets.Infrastructure.Outbox;
+namespace BankApp.BankAccounts.Infrastructure.Outbox;
 
 public interface IMessageOutbox
 {

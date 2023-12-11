@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace BankApp.Wallets.Infrastructure.Outbox;
+namespace BankApp.BankAccounts.Infrastructure.Outbox;
 
 public class OutboxProcessor : IHostedService
 {
@@ -34,7 +34,7 @@ public class OutboxProcessor : IHostedService
         var messages = await outbox.GetUnsentAsync();
         foreach (var message in messages.OrderBy(outboxMessage => outboxMessage.SentAt))
         {
-            await _publisher.PublishAsync(message.Message, message.MessageId);
+            await _publisher.PublishAsync(message.SerializedMessage, message.MessageId);
             await outbox.ProcessAsync(message);
         }
     }

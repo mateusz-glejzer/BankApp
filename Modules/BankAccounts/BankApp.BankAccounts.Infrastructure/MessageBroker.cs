@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using BankApp.BankAccounts.Infrastructure.Outbox;
 using BankApp.Wallets.Core;
-using BankApp.Wallets.Infrastructure.Outbox;
 
-namespace BankApp.Wallets.Infrastructure;
+namespace BankApp.BankAccounts.Infrastructure;
 
 public class MessageBroker : IMessageBroker
 {

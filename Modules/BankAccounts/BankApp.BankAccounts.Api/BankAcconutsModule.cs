@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
+using BankApp.BankAccounts.Domain.Accounts;
+using BankApp.BankAccounts.Infrastructure.Extensions;
 using BankApp.Shared.Abstractions.Modules;
 using BankApp.Wallets.Core.Commands;
 using BankApp.Wallets.Core.Extensions;
-using BankApp.Wallets.Infrastructure.Extensions;
+using BankApp.Wallets.Core.Queries;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,7 +27,9 @@ public class BankAccountsModule : IModule
     {
         return new[]
         {
-            new EndpointInfo("/userAccounts", HttpMethod.Get, () => "hello"),
+            new EndpointInfo("/userAccounts", HttpMethod.Get,
+                async ([FromBody] GetUserAccountsQuery query, [FromServices] IQueryDispatcher queryDispatcher) =>
+                await queryDispatcher.GetAsync<GetUserAccountsQuery, IReadOnlyList<Account>>(query)),
             new EndpointInfo("/account/create-transaction", HttpMethod.Post,
                 async ([FromBody] CreateTransactionCommand request,
                     [FromServices] ICommandDispatcher commandDispatcher) =>

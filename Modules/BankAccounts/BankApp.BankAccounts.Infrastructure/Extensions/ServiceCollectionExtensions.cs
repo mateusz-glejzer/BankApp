@@ -1,13 +1,13 @@
 ﻿using BankApp.BankAccounts.Domain.Accounts.Repository;
-using BankApp.Shared.Infrastructure;
+using BankApp.BankAccounts.Infrastructure.Outbox;
+using BankApp.BankAccounts.Infrastructure.Repositories;
 using BankApp.Wallets.Core;
-using BankApp.Wallets.Infrastructure.Outbox;
-using BankApp.Wallets.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BankApp.Wallets.Infrastructure.Extensions;
+namespace BankApp.BankAccounts.Infrastructure.Extensions;
 
 public static class ServiceCollectionExtensions
 {
@@ -16,7 +16,7 @@ public static class ServiceCollectionExtensions
         // TODO add connection string for postgresql
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         services.AddDbContext<AccountsDbContext>(optionsBuilder =>
-            optionsBuilder.UsePostgreSqlWithCustomMigrationTable<AccountsDbContext>(
+            optionsBuilder.UseNpgsql(
                 "Host=localhost; Database=bankApp-modular; Username=postgres; Password=matimati2137"));
         // services.AddHostedService<OutboxProcessor>();
         services.AddScoped<IMessageOutbox, MessageOutbox>();

@@ -1,8 +1,9 @@
 ﻿using BankApp.BankAccounts.Domain.Accounts;
-using BankApp.Wallets.Infrastructure.Outbox;
+using BankApp.BankAccounts.Domain.Shared;
+using BankApp.BankAccounts.Infrastructure.Outbox;
 using Microsoft.EntityFrameworkCore;
 
-namespace BankApp.Wallets.Infrastructure;
+namespace BankApp.BankAccounts.Infrastructure;
 
 public class AccountsDbContext : DbContext
 {
@@ -11,7 +12,7 @@ public class AccountsDbContext : DbContext
     {
     }
 
-    public AccountsDbContext()
+    public AccountsDbContext() : base()
     {
     }
 
@@ -25,5 +26,10 @@ public class AccountsDbContext : DbContext
             .HasKey(account => account.AccountId);
         modelBuilder.Entity<OutboxMessage>()
             .HasKey(message => message.MessageId);
+        modelBuilder.Entity<Account>().Property(account => account.AccountId)
+            .HasConversion(accountId => accountId.Id, id => new AccountId(id));
+        modelBuilder.Entity<Account>().Property(account => account.UserId)
+            .HasConversion(userId => userId.Id, id => new UserId(id));
+        modelBuilder.Entity<OutboxMessage>().Ignore(account => account.Message);
     }
 }

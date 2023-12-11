@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace BankApp.Wallets.Infrastructure;
+namespace BankApp.BankAccounts.Infrastructure;
 
 public interface IBusPublisher
 {

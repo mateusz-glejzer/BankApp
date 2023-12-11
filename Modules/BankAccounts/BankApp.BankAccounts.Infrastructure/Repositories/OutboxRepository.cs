@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using BankApp.Wallets.Infrastructure.Outbox;
+using BankApp.BankAccounts.Infrastructure.Outbox;
 
-namespace BankApp.Wallets.Infrastructure.Repositories;
+namespace BankApp.BankAccounts.Infrastructure.Repositories;
 
 public class OutboxRepository
 {

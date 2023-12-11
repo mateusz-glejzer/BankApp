@@ -1,6 +1,6 @@
 ﻿using Confluent.Kafka;
 
-namespace BankApp.Wallets.Infrastructure;
+namespace BankApp.BankAccounts.Infrastructure;
 
 public class KafkaMessageBrokerConfig
 {
