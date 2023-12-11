@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using BankApp.BankAccounts.Domain.Accounts;
 using BankApp.BankAccounts.Domain.Accounts.Repository;
 using BankApp.BankAccounts.Domain.Shared;
-using BankApp.Wallets.Infrastructure.Db;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankApp.Wallets.Infrastructure.Repositories;

@@ -1,5 +1,6 @@
-﻿using BankApp.Shared.Abstractions.Modules;
-using Microsoft.AspNetCore.Builder;
+﻿using BankApp.Identity.Core.Extensions;
+using BankApp.Identity.Infrastructure.Extensions;
+using BankApp.Shared.Abstractions.Modules;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,18 +10,20 @@ public class IdentityModule : IModule
 {
     public string Name => "IdentityModule";
     public string Path => "identity";
+
     public IReadOnlyList<EndpointInfo> GetEndpoints()
     {
-        throw new NotImplementedException();
-    }
-
-    public void Use(IApplicationBuilder app)
-    {
-        throw new NotImplementedException();
+        return new[]
+        {
+            new EndpointInfo("/login", HttpMethod.Get, () => "hello"),
+            new EndpointInfo("/register", HttpMethod.Get, () => "hello"),
+            new EndpointInfo("/refresh-token/use", HttpMethod.Get, () => "hello"),
+        };
     }
 
     public void Register(IServiceCollection services, IConfiguration configuration)
     {
-        throw new NotImplementedException();
+        services.AddCore(configuration);
+        services.AddInfrastructure(configuration);
     }
 }

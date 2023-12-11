@@ -22,7 +22,7 @@ public static class ModulesExtensions
 
                 endpointRouteBuilder.MapMethods(
                     pattern: endpointRoute,
-                    httpMethods: new[] { "GET", },
+                    httpMethods: new[] { endpoint.HttpVerb.ToString().ToUpper() },
                     handler: endpoint.Handler);
             }
         }

@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using BankApp.Wallets.Infrastructure.Db;
 using BankApp.Wallets.Infrastructure.Outbox;
 
 namespace BankApp.Wallets.Infrastructure.Repositories;

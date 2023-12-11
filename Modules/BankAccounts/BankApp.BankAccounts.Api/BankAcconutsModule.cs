@@ -4,7 +4,6 @@ using BankApp.Shared.Abstractions.Modules;
 using BankApp.Wallets.Core.Commands;
 using BankApp.Wallets.Core.Extensions;
 using BankApp.Wallets.Infrastructure.Extensions;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,21 +21,16 @@ public class BankAccountsModule : IModule
         services.AddInfrastructure(configuration);
     }
 
-
-    public void Use(IApplicationBuilder app)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public IReadOnlyList<EndpointInfo> GetEndpoints()
     {
         return new[]
         {
-            new EndpointInfo("userAccounts", HttpMethod.Get, () => "hello"),
-            new EndpointInfo("account/create-transaction", HttpMethod.Post,
-                ([FromBody] CreateTransactionCommand request, [FromServices] ICommandDispatcher commandDispatcher) =>
+            new EndpointInfo("/userAccounts", HttpMethod.Get, () => "hello"),
+            new EndpointInfo("/account/create-transaction", HttpMethod.Post,
+                async ([FromBody] CreateTransactionCommand request,
+                    [FromServices] ICommandDispatcher commandDispatcher) =>
                 {
-                    commandDispatcher.SendAsync(request);
+                    await commandDispatcher.SendAsync(request);
                 }),
         };
     }

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
 
 namespace BankApp.Shared.Infrastructure.Modules;
 
 public static class Extensions
 {
-    public static IHostBuilder ConfigureModules(this IHostBuilder builder)
+    public static IWebHostBuilder ConfigureModules(this IWebHostBuilder builder)
         => builder.ConfigureAppConfiguration((ctx, cfg) =>
         {
             foreach (var settings in GetSettings("*"))

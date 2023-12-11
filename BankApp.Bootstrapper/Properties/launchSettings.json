@@ -8,6 +8,13 @@
     }
   },
   "profiles": {
+    "BankApp - Development": {
+      "commandName": "Project",
+      "applicationUrl": "https://localhost:21370;http://localhost:42069",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
     "http": {
       "commandName": "Project",
       "dotnetRunMessages": true,

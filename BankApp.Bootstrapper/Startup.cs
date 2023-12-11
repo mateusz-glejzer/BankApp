@@ -1,5 +1,4 @@
 ﻿using BankApp.BankAccounts.Api;
-using BankApp.Transactions.Api;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +20,11 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         ModulesExtensions.RegisterModule<BankAccountsModule>();
-        ModulesExtensions.RegisterModule<TransactionsModule>();
+        // ModulesExtensions.RegisterModule<TransactionsModule>();
+        // ModulesExtensions.RegisterModule<IdentityModule>();
+        services.AddControllers();
+        services.AddEndpointsApiExplorer();
+        services.AddSwaggerGen();
         services.AddModules(_configuration);
     }
 
@@ -29,10 +32,16 @@ public class Startup
     {
         if (environment.IsDevelopment())
         {
+            applicationBuilder.UseSwagger();
+            applicationBuilder.UseSwaggerUI();
             applicationBuilder.UseDeveloperExceptionPage();
         }
 
         applicationBuilder.UseRouting();
-        applicationBuilder.UseEndpoints(ModulesExtensions.MapModulesEndpoints);
+        applicationBuilder.UseEndpoints(endpointRouteBuilder =>
+        {
+            endpointRouteBuilder.MapModulesEndpoints();
+            endpointRouteBuilder.MapControllers();
+        });
     }
 }

@@ -1,5 +1,4 @@
 ﻿using BankApp.Shared.Abstractions.Modules;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,9 +14,6 @@ public class TransactionsModule : IModule
     {
     }
 
-    public void Use(IApplicationBuilder app)
-    {
-    }
 
     public IReadOnlyList<EndpointInfo> GetEndpoints()
     {

@@ -7,14 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\BankApp.Shared.Abstractions\BankApp.Shared.Abstractions.csproj" />
-      <ProjectReference Include="..\BankApp.BankAccounts.Core\BankApp.BankAccounts.Core.csproj" />
-      <ProjectReference Include="..\BankApp.BankAccounts.Infrastructure\BankApp.BankAccounts.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\..\BankApp.Shared.Abstractions\BankApp.Shared.Abstractions.csproj"/>
+        <ProjectReference Include="..\BankApp.BankAccounts.Core\BankApp.BankAccounts.Core.csproj"/>
+        <ProjectReference Include="..\BankApp.BankAccounts.Infrastructure\BankApp.BankAccounts.Infrastructure.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-      <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5"/>
     </ItemGroup>
 
 </Project>
