@@ -10,28 +10,31 @@ namespace BankApp.Identity.Core.Services;
 public class IdentityService : IIdentityService
 {
     private readonly IUserRepository _userRepository;
+    private readonly ISaltRepository _saltRepository;
     private readonly IPasswordManager _passwordManager;
     private readonly IJwtProvider _jwtProvider;
     private readonly IRefreshTokenService _refreshTokenService;
 
     public IdentityService(IUserRepository userRepository, IPasswordManager passwordManager, IJwtProvider jwtProvider,
-        IRefreshTokenService refreshTokenService)
+        IRefreshTokenService refreshTokenService, ISaltRepository saltRepository)
     {
         _userRepository = userRepository;
         _passwordManager = passwordManager;
         _jwtProvider = jwtProvider;
         _refreshTokenService = refreshTokenService;
+        _saltRepository = saltRepository;
     }
 
     public async Task<AuthorizationDto> SignInAsync(SignInCommand signInCommand)
     {
         var user = await _userRepository.GetAsync(signInCommand.Email);
-        var isValid = _passwordManager.IsValid(user.Password, signInCommand.Password);
+        var salt = _saltRepository.GetSalt(user.Id.Id);
+        var isValid = _passwordManager.IsValid(user.Password, signInCommand.Password, salt);
         if (isValid is false)
         {
         }
 
-        var authorization = _jwtProvider.Create(user.Id.Id, user.Role);
+        var authorization = _jwtProvider.CreateToken(user.Id, user.Role);
         authorization.RefreshToken = await _refreshTokenService.CreateAsync(user.Id.Id);
         return authorization;
     }

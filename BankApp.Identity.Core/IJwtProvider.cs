@@ -1,10 +1,11 @@
 ﻿using BankApp.Identity.Core.Models;
+using BankApp.Identity.Domain.User;
 
 namespace BankApp.Identity.Core;
 
 public interface IJwtProvider
 {
     AuthorizationDto CreateToken(
-        string userId,
+        UserId userId,
         string role);
 }

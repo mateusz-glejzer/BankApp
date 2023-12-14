@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using BankApp.Identity.Core;
 using BankApp.Identity.Core.Models;
+using BankApp.Identity.Domain.User;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BankApp.Identity.Infrastructure
@@ -20,13 +21,13 @@ namespace BankApp.Identity.Infrastructure
         }
 
         public AuthorizationDto CreateToken(
-            string userId,
+            UserId userId,
             string role)
         {
-            if (string.IsNullOrWhiteSpace(userId))
+            if (userId is null)
                 throw new ArgumentException("User id cannot be empty.", nameof(userId));
             var utcNow = DateTime.UtcNow;
-            var claims = new List<Claim> { new("userId", userId) };
+            var claims = new List<Claim> { new("userId", userId.ToString()) };
             var dateTime = utcNow.AddSeconds(_jwtOptions.ExpiryInSeconds);
 
             var token = new JwtSecurityTokenHandler().WriteToken(new JwtSecurityToken(_jwtOptions.ValidIssuer,

@@ -2,6 +2,6 @@
 
 public interface IPasswordManager
 {
-    bool IsValid(string hashedPassword, string password);
-    string Hash(string password);
+    bool IsValid(string hash, string password, byte[] salt);
+    string Hash(string password, out byte[] salt);
 }

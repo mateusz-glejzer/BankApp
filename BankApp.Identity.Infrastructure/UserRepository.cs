@@ -7,9 +7,9 @@ namespace BankApp.Identity.Infrastructure;
 
 public class UserRepository : IUserRepository
 {
-    private readonly UserDbContext _dbContext;
+    private readonly IdentityDbContext _dbContext;
 
-    public UserRepository(UserDbContext dbContext)
+    public UserRepository(IdentityDbContext dbContext)
     {
         _dbContext = dbContext;
     }
