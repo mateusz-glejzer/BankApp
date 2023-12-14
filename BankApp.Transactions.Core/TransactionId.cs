@@ -1,4 +1,6 @@
-﻿namespace BankApp.Transactions.Core;
+﻿using System;
+
+namespace BankApp.Transactions.Core;
 
 public record TransactionId(Guid Id)
 {

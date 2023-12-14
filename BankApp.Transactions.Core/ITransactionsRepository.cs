@@ -1,4 +1,7 @@
-﻿using BankApp.Transactions.Core.Shared;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using BankApp.Transactions.Core.Shared;
 
 namespace BankApp.Transactions.Core;
 

@@ -1,4 +1,7 @@
-﻿namespace BankApp.Transactions.Core.Queries;
+﻿using System.Threading;
+using System.Threading.Tasks;
+
+namespace BankApp.Transactions.Core.Queries;
 
 public interface IQueryDispatcher
 {

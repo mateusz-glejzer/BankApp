@@ -1,4 +1,6 @@
-﻿namespace BankApp.Transactions.Core.Exceptions;
+﻿using System;
+
+namespace BankApp.Transactions.Core.Exceptions;
 
 public class TransactionDoesNotExistsException : Exception
 {

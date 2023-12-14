@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using BankApp.Identity.Core;
@@ -17,7 +19,7 @@ namespace BankApp.Identity.Infrastructure
             _jwtOptions = jwtOptions;
         }
 
-        public IdentityModel CreateToken(
+        public AuthorizationDto CreateToken(
             string userId,
             string role)
         {
@@ -30,7 +32,7 @@ namespace BankApp.Identity.Infrastructure
             var token = new JwtSecurityTokenHandler().WriteToken(new JwtSecurityToken(_jwtOptions.ValidIssuer,
                 claims: claims, notBefore: utcNow, expires: dateTime,
                 signingCredentials: _signingCredentials));
-            return new IdentityModel
+            return new AuthorizationDto
             {
                 AccessToken = token,
                 RefreshToken = string.Empty,

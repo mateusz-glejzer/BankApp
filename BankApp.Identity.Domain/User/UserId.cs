@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BankApp.Transactions.Core.Shared;
+namespace BankApp.Identity.Domain.User;
 
 public record UserId(Guid Id)
 {

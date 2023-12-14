@@ -1,4 +1,7 @@
-﻿namespace BankApp.Identity.Core.Commands;
+﻿using System.Threading;
+using System.Threading.Tasks;
+
+namespace BankApp.Identity.Core.Commands;
 
 public interface ICommandDispatcher
 {

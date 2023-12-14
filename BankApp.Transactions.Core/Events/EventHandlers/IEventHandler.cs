@@ -1,4 +1,7 @@
-﻿namespace BankApp.Transactions.Core.Events.EventHandlers;
+﻿using System.Threading;
+using System.Threading.Tasks;
+
+namespace BankApp.Transactions.Core.Events.EventHandlers;
 
 public interface IEventHandler<in TEvent> where TEvent : class, IEvent
 {

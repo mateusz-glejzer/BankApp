@@ -1,4 +1,5 @@
-﻿using BankApp.Transactions.Core.Shared;
+﻿using System;
+using BankApp.Transactions.Core.Shared;
 
 namespace BankApp.Transactions.Core;
 

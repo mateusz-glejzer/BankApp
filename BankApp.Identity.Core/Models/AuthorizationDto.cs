@@ -1,6 +1,6 @@
 ﻿namespace BankApp.Identity.Core.Models;
 
-public class IdentityModel
+public class AuthorizationDto
 {
     public string AccessToken { get; set; }
     public string RefreshToken { get; set; }

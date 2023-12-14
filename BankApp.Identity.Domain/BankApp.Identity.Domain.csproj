@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <RootNamespace>BankApp.Transactions.Core</RootNamespace>
-        <PackageId>BankApp.Transactions.Core</PackageId>
+        <RootNamespace>BankApp.Identity.Domain</RootNamespace>
+        <PackageId>BankApp.Identity.Domain</PackageId>
     </PropertyGroup>
 
 </Project>

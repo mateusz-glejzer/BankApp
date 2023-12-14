@@ -4,7 +4,7 @@ namespace BankApp.Identity.Core;
 
 public interface IJwtProvider
 {
-    IdentityModel CreateToken(
+    AuthorizationDto CreateToken(
         string userId,
         string role);
 }
