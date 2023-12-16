@@ -47,9 +47,12 @@ public class IdentityService : IIdentityService
             //TODO
         }
 
-        var hashedPassword = _passwordManager.Hash(signUpCommand.Password);
+        var hashedPassword = _passwordManager.Hash(signUpCommand.Password, out var salt);
+
         var user = new User(signUpCommand.Email, "User", hashedPassword);
         await _userRepository.AddAsync(user);
+        await _userRepository.SaveChangesAsync();
+        await _saltRepository.SaveSalt(new UserSalt() { Salt = salt, UserId = user.Id.Id });
         //TODO message that new user has been created with outbox
     }
 }

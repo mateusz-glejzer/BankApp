@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
+using BankApp.Identity.Core.Models;
 using BankApp.Identity.Core.Repositories;
 
 namespace BankApp.Identity.Infrastructure;
@@ -16,5 +18,10 @@ public class SaltRepository : ISaltRepository
     public byte[] GetSalt(Guid userId)
     {
         return _identityDbContext.Salts.Single(userSalt => userSalt.UserId == userId).Salt;
+    }
+
+    public async Task SaveSalt(UserSalt salt)
+    {
+        await _identityDbContext.Salts.AddAsync(salt);
     }
 }

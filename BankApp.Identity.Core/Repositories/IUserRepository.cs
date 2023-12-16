@@ -7,4 +7,5 @@ public interface IUserRepository
 {
     Task<User> GetAsync(string email);
     Task AddAsync(User user);
+    Task SaveChangesAsync();
 }
