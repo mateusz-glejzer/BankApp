@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace BankApp.Identity.Infrastructure;
 
-public class KafkaPublisher : IBusPublisher
+public class KafkaPublisher : IPublisher
 {
     private readonly IProducer<Null, string> _producer;
 

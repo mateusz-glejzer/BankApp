@@ -18,5 +18,6 @@ public class CreateAccountCommandHandler : ICommandHandler<CreateAccountCommand>
     {
         var newAccount = new Account(command.OwnerId, command.Currency);
         await _accountRepository.AddAccountAsync(newAccount, cancellationToken);
+        //TODO dispatch events
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using BankApp.BankAccounts.Infrastructure.Outbox;
 using Confluent.Kafka;
 using Newtonsoft.Json;
 

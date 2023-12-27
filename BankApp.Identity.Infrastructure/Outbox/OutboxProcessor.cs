@@ -7,11 +7,11 @@ namespace BankApp.Identity.Infrastructure.Outbox;
 
 public class OutboxProcessor : IJob
 {
-    private readonly IBusPublisher _publisher;
+    private readonly IPublisher _publisher;
     private readonly IServiceScopeFactory _serviceScopeFactory;
 
 
-    public OutboxProcessor(IBusPublisher publisher, IServiceScopeFactory serviceScopeFactory)
+    public OutboxProcessor(IPublisher publisher, IServiceScopeFactory serviceScopeFactory)
     {
         _publisher = publisher;
         _serviceScopeFactory = serviceScopeFactory;
