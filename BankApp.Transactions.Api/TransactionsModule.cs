@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
-using BankApp.Shared.Abstractions.Modules;
+using BankApp.Shared.Infrastructure.Configuration;
+using BankApp.Shared.Infrastructure.Modules;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,8 +22,8 @@ public class TransactionsModule : IModule
     {
         return new[]
         {
-            new EndpointInfo("", HttpMethod.Get, () => ""),
-            new EndpointInfo("", HttpMethod.Post, (HttpContext context) => { }),
+            new EndpointInfo("", HttpMethod.Get, () => "", AuthorizationLevel.Client),
+            new EndpointInfo("", HttpMethod.Post, (HttpContext context) => { }, AuthorizationLevel.Client),
         };
     }
 }

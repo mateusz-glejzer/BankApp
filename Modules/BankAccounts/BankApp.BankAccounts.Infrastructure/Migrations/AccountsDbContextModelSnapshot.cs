@@ -60,6 +60,9 @@ namespace BankApp.BankAccounts.Infrastructure.Migrations
                     b.Property<string>("SerializedMessage")
                         .HasColumnType("text");
 
+                    b.Property<string>("Topic")
+                        .HasColumnType("text");
+
                     b.HasKey("MessageId");
 
                     b.ToTable("OutboxMessages", "bankAccounts");

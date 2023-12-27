@@ -1,15 +1,32 @@
-using System.Threading.Tasks;
-using BankApp.Shared.Infrastructure.Modules;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+using BankApp.BankAccounts.Api;
+using BankApp.Bootstrapper;
+using BankApp.Identity.Api;
+using BankApp.Transactions.Api;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace BankApp.Bootstrapper;
+ModulesExtensions.RegisterModule<TransactionsModule>();
+ModulesExtensions.RegisterModule<IdentityModule>();
+ModulesExtensions.RegisterModule<BankAccountsModule>();
 
-public class Program
+var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.ConfigureModules();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddModules(builder.Configuration);
+
+var applicationBuilder = builder.Build();
+
+applicationBuilder.UseSwagger();
+applicationBuilder.UseSwaggerUI();
+applicationBuilder.UseDeveloperExceptionPage();
+
+applicationBuilder.UseRouting();
+applicationBuilder.UseEndpoints(endpointRouteBuilder =>
 {
-    public static async Task Main(string[] args) => await CreateWebHostBuilder(args).Build().RunAsync();
+    endpointRouteBuilder.MapModulesEndpoints();
+    endpointRouteBuilder.MapControllers();
+});
 
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureModules().UseStartup<Startup>();
-}
+applicationBuilder.Run();

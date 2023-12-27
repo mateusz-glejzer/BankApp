@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BankApp.Identity.Core.Models;
+namespace BankApp.Identity.Core.Identity.Models;
 
 public class UserSalt
 {

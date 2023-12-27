@@ -6,7 +6,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\BankApp.Identity.Api\BankApp.Identity.Api.csproj" />
-      <ProjectReference Include="..\BankApp.Shared.Abstractions\BankApp.Shared.Abstractions.csproj" />
       <ProjectReference Include="..\BankApp.Shared.Infrastructure\BankApp.Shared.Infrastructure.csproj" />
       <ProjectReference Include="..\BankApp.Transactions.Api\BankApp.Transactions.Api.csproj" />
       <ProjectReference Include="..\Modules\BankAccounts\BankApp.BankAccounts.Api\BankApp.BankAccounts.Api.csproj" />

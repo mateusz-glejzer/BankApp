@@ -14,16 +14,16 @@ public class QueryDispatcher : IQueryDispatcher
         => _serviceProvider = serviceProvider;
 
 
-    public async Task GetAsync<TQuery, TResponse>(TQuery query, CancellationToken cancellationToken = default)
+    public async Task<TResponse> GetAsync<TQuery, TResponse>(TQuery query, CancellationToken cancellationToken = default)
         where TQuery : class, IQuery
     {
         if (query is null)
         {
-            return;
+            return (TResponse)default;
         }
 
         using var scope = _serviceProvider.CreateScope();
         var handler = scope.ServiceProvider.GetRequiredService<IQueryHandler<TQuery, TResponse>>();
-        await handler.HandleAsync(query, cancellationToken);
+        return await handler.HandleAsync(query, cancellationToken);
     }
 }

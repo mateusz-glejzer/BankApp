@@ -2,27 +2,27 @@
 using System.Threading.Tasks;
 using BankApp.BankAccounts.Infrastructure.Outbox;
 using Confluent.Kafka;
+using Newtonsoft.Json;
 
 namespace BankApp.BankAccounts.Infrastructure;
 
-public class KafkaPublisher : IBusPublisher
+public class KafkaPublisher : IPublisher
 {
-    private readonly IMessageOutbox _outbox;
-    private readonly ProducerConfig _producerConfig;
+    private readonly IProducer<Null, string> _producer;
 
     public KafkaPublisher()
     {
-        // _producerConfig = producerConfig;
-        _producerConfig = new ProducerConfig { BootstrapServers = "localhost:9092" };
+        var producerConfig = new ProducerConfig { BootstrapServers = "localhost:29092" };
+
+        _producer = new ProducerBuilder<Null, string>(producerConfig).Build();
     }
 
 
-    public Task PublishAsync<T>(T message, Guid messageId) where T : class
+    public async Task PublishAsync<T>(string topic, T message, Guid messageId) where T : class
     {
-        using (var p = new ProducerBuilder<Null, string>(_producerConfig).Build())
+        await _producer.ProduceAsync(topic, new Message<Null, string>
         {
-        }
-
-        return Task.CompletedTask;
+            Value = JsonConvert.SerializeObject(message),
+        });
     }
 }

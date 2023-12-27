@@ -23,6 +23,6 @@ public class CreateTransactionCommandHandler : ICommandHandler<CreateTransaction
         account.CreateTransaction(command.RecipientId, command.Amount);
         var events = account.DomainEvents
             .Select(@event => @event.MapToPublicEvent());
-        await _messageBroker.PublishAsync(events);
+        await _messageBroker.PublishAsync("transaction-created", events);
     }
 }

@@ -13,4 +13,8 @@
         <Reference Include="Microsoft.AspNetCore.Http.Abstractions" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Modules\" />
+    </ItemGroup>
+
 </Project>

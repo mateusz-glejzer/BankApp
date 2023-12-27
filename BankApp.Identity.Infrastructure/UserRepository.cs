@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BankApp.Identity.Core.Repositories;
 using BankApp.Identity.Domain.User;
+using Microsoft.EntityFrameworkCore;
 
 namespace BankApp.Identity.Infrastructure;
 
@@ -16,7 +17,7 @@ public class UserRepository : IUserRepository
 
     public async Task<User> GetAsync(string email)
     {
-        return _dbContext.Users.Single(user => user.Email == email);
+        return await _dbContext.Users.SingleOrDefaultAsync(user => user.Email == email);
     }
 
     public async Task AddAsync(User user)

@@ -8,32 +8,37 @@ namespace BankApp.BankAccounts.Infrastructure.Outbox;
 
 public class MessageOutbox : IMessageOutbox
 {
-    private readonly OutboxRepository _outboxRepository;
+    private readonly IOutboxRepository _outboxRepository;
 
-    public MessageOutbox(OutboxRepository outboxRepository)
+    public MessageOutbox(IOutboxRepository outboxRepository)
     {
         _outboxRepository = outboxRepository;
     }
 
-    public async Task SendAsync<T>(T message, Guid messageId) where T : class
+    public async Task SendAsync<T>(string topic, T message, Guid messageId) where T : class
     {
-        var serializedMessage =JsonConvert.SerializeObject(message);
+        var serializedMessage = JsonConvert.SerializeObject(message);
         await _outboxRepository.AddAsync(new OutboxMessage
         {
             MessageId = messageId,
             SerializedMessage = serializedMessage,
             MessageType = ((T)message)?.GetType().AssemblyQualifiedName,
+            Topic = topic,
             SentAt = DateTime.UtcNow
         });
+        await _outboxRepository.SaveChangesAsync();
     }
 
-    public Task<IReadOnlyList<OutboxMessage>> GetUnsentAsync()
+
+    public async Task<IReadOnlyList<OutboxMessage>> GetUnsentAsync()
     {
-        throw new NotImplementedException();
+        return await _outboxRepository.GetUnsentAsync();
     }
 
-    public Task ProcessAsync(OutboxMessage message)
+    public async Task ProcessAsync(OutboxMessage message)
     {
-        throw new NotImplementedException();
+        message.ProcessedAt = DateTime.UtcNow;
+        _outboxRepository.Update(message);
+        await _outboxRepository.SaveChangesAsync();
     }
 }

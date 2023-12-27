@@ -9,7 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\BankApp.Identity.Core\BankApp.Identity.Core.csproj" />
       <ProjectReference Include="..\BankApp.Identity.Infrastructure\BankApp.Identity.Infrastructure.csproj" />
-      <ProjectReference Include="..\BankApp.Shared.Abstractions\BankApp.Shared.Abstractions.csproj" />
+      <ProjectReference Include="..\BankApp.Shared.Infrastructure\BankApp.Shared.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -20,6 +20,13 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="module.identity.Development.json" />
+      <Content Include="module.identity.Development.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

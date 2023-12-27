@@ -4,5 +4,5 @@ namespace BankApp.Wallets.Core;
 
 public interface IMessageBroker
 {
-    Task PublishAsync<T>(T message) where T : class;
+    Task PublishAsync<T>(string topic, T message) where T : class;
 }

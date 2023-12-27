@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using BankApp.Identity.Core.Models;
+using BankApp.Identity.Core.Identity.Models;
 
 namespace BankApp.Identity.Core.Repositories;
 
 public interface ISaltRepository
 {
-    byte[] GetSalt(Guid userId);
+    Task<byte[]> GetSalt(Guid userId);
     Task SaveSalt(UserSalt salt);
+    Task SaveChangesAsync();
 }

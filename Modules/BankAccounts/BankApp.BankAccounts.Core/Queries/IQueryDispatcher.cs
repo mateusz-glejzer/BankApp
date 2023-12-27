@@ -5,6 +5,6 @@ namespace BankApp.Wallets.Core.Queries;
 
 public interface IQueryDispatcher
 {
-    Task GetAsync<TQuery, TResponse>(TQuery query, CancellationToken cancellationToken = default)
+    Task<TResponse> GetAsync<TQuery, TResponse>(TQuery query, CancellationToken cancellationToken = default)
         where TQuery : class, IQuery;
 }

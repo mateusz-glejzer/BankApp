@@ -2,27 +2,40 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
 using BankApp.Identity.Core;
-using BankApp.Identity.Core.Models;
+using BankApp.Identity.Core.Identity;
+using BankApp.Identity.Core.Identity.Models;
 using BankApp.Identity.Domain.User;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BankApp.Identity.Infrastructure
 {
-    public class JwtTokenHandler : IJwtProvider
+    public class JwtTokenHandler : IJwtTokenHandler
     {
         private readonly SigningCredentials _signingCredentials;
         private readonly JwtOptions _jwtOptions;
 
-        public JwtTokenHandler(SigningCredentials signingCredentials, JwtOptions jwtOptions)
+        public JwtTokenHandler(JwtOptions jwtOptions)
         {
-            _signingCredentials = signingCredentials;
+            _signingCredentials = new SigningCredentials(new SymmetricSecurityKey
+                (Encoding.UTF8.GetBytes(jwtOptions.IssuerSigningKey)), jwtOptions.Algorithm);
             _jwtOptions = jwtOptions;
+            // new TokenValidationParameters()
+            // {
+            //     ValidIssuer = jwtOptions.ValidIssuer,
+            //     IssuerSigningKey = new SymmetricSecurityKey
+            //         (Encoding.UTF8.GetBytes(jwtOptions.IssuerSigningKey)),
+            //     ValidateIssuer = jwtOptions.ValidateIssuer,
+            //     ValidateLifetime = jwtOptions.ValidateLifetime,
+            //     ValidateIssuerSigningKey = jwtOptions.ValidateIssuerSigningKey,
+            // });
         }
+
 
         public AuthorizationDto CreateToken(
             UserId userId,
-            string role)
+            Roles role)
         {
             if (userId is null)
                 throw new ArgumentException("User id cannot be empty.", nameof(userId));

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using BankApp.Shared.Infrastructure.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BankApp.Shared.Abstractions.Modules;
+namespace BankApp.Shared.Infrastructure.Modules;
 
 public interface IModule
 {

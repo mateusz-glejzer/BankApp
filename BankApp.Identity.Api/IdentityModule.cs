@@ -1,12 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
+using System.Text;
 using BankApp.Identity.Core.Commands;
 using BankApp.Identity.Core.Extensions;
+using BankApp.Identity.Core.Identity.Models;
 using BankApp.Identity.Infrastructure.Extensions;
-using BankApp.Shared.Abstractions.Modules;
+using BankApp.Shared.Infrastructure.Configuration;
+using BankApp.Shared.Infrastructure.Modules;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BankApp.Identity.Api;
 
@@ -19,24 +24,27 @@ public class IdentityModule : IModule
     {
         return new[]
         {
-            new EndpointInfo("/login", HttpMethod.Get,
+            new EndpointInfo("/login", HttpMethod.Post,
                 async ([FromBody] SignInCommand signInCommand, [FromServices] ICommandDispatcher commandDispatcher) =>
-                await commandDispatcher.SendAsync(signInCommand)),
+                await commandDispatcher.SendAsync<SignInCommand, AuthorizationDto>(signInCommand),
+                AuthorizationLevel.Anonymous),
             new EndpointInfo("/register", HttpMethod.Post,
                 async ([FromBody] SignUpCommand signUpCommand, [FromServices] ICommandDispatcher commandDispatcher) =>
                 {
                     await commandDispatcher.SendAsync(signUpCommand);
-                }),
+                }, AuthorizationLevel.Anonymous),
             new EndpointInfo("/refresh-token/use", HttpMethod.Get,
                 ([FromBody] UseRefreshTokenCommand useRefreshTokenCommand,
                         [FromServices] ICommandDispatcher commandDispatcher) =>
-                    commandDispatcher.SendAsync(useRefreshTokenCommand)),
+                    commandDispatcher.SendAsync(useRefreshTokenCommand), AuthorizationLevel.Client),
         };
     }
 
     public void Register(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddCore(configuration);
-        services.AddInfrastructure(configuration);
+        var identityModuleOptions = configuration.GetSection<ModuleOptions>($"{Name}:Options");
+
+        services.AddCore();
+        services.AddInfrastructure(identityModuleOptions.Jwt);
     }
 }

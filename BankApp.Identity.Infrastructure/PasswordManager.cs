@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using BankApp.Identity.Core.Services;
+using BankApp.Identity.Core.Identity.Services;
 
 namespace BankApp.Identity.Infrastructure;
 

@@ -9,7 +9,7 @@ public class UsersContextFactory : IDesignTimeDbContextFactory<IdentityDbContext
     {
         var optionsBuilder = new DbContextOptionsBuilder<IdentityDbContext>();
         optionsBuilder.UseNpgsql(
-            "Host=localhost; Database=bankApp-modular; Username=postgres; Password=matimati2137");
+            "Host=localhost; Database=bankApp-modular; Username=postgres;");
 
         return new IdentityDbContext(optionsBuilder.Options);
     }

@@ -1,4 +1,4 @@
-﻿namespace BankApp.Identity.Core.Services;
+﻿namespace BankApp.Identity.Core.Identity.Services;
 
 public interface IPasswordManager
 {

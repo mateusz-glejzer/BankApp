@@ -14,13 +14,13 @@ public class MessageBroker : IMessageBroker
         _outbox = outbox;
     }
 
-    public async Task PublishAsync<T>(T message) where T : class
+    public async Task PublishAsync<T>(string topic, T message) where T : class
     {
         if (message is null)
         {
             return;
         }
 
-        await _outbox.SendAsync(message, Guid.NewGuid());
+        await _outbox.SendAsync(topic, message, Guid.NewGuid());
     }
 }

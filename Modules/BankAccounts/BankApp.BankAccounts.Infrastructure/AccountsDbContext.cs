@@ -24,12 +24,13 @@ public class AccountsDbContext : DbContext
         modelBuilder.HasDefaultSchema("bankAccounts");
         modelBuilder.Entity<Account>()
             .HasKey(account => account.AccountId);
-        modelBuilder.Entity<OutboxMessage>()
-            .HasKey(message => message.MessageId);
         modelBuilder.Entity<Account>().Property(account => account.AccountId)
             .HasConversion(accountId => accountId.Id, id => new AccountId(id));
         modelBuilder.Entity<Account>().Property(account => account.UserId)
             .HasConversion(userId => userId.Id, id => new UserId(id));
+        
+        modelBuilder.Entity<OutboxMessage>()
+            .HasKey(message => message.MessageId);
         modelBuilder.Entity<OutboxMessage>().Ignore(account => account.Message);
     }
 }

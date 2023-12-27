@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\BankApp.Shared.Abstractions\BankApp.Shared.Abstractions.csproj"/>
         <ProjectReference Include="..\BankApp.BankAccounts.Core\BankApp.BankAccounts.Core.csproj"/>
         <ProjectReference Include="..\BankApp.BankAccounts.Infrastructure\BankApp.BankAccounts.Infrastructure.csproj"/>
     </ItemGroup>

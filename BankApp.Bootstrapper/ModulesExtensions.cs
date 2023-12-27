@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BankApp.Shared.Abstractions.Modules;
+using BankApp.Shared.Infrastructure.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;

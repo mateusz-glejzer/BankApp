@@ -7,9 +7,10 @@ public class BankAppContextFactory : IDesignTimeDbContextFactory<AccountsDbConte
 {
     public AccountsDbContext CreateDbContext(string[] args)
     {
+        //TODO move connection string to config
         var optionsBuilder = new DbContextOptionsBuilder<AccountsDbContext>();
         optionsBuilder.UseNpgsql(
-            "Host=localhost; Database=bankApp-modular; Username=postgres; Password=matimati2137");
+            "Host=localhost; Database=bankApp-modular; Username=postgres;");
 
         return new AccountsDbContext(optionsBuilder.Options);
     }

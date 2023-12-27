@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using BankApp.Identity.Core.Models;
+using BankApp.Identity.Core.Identity.Models;
 using BankApp.Identity.Core.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace BankApp.Identity.Infrastructure;
 
@@ -15,13 +16,18 @@ public class SaltRepository : ISaltRepository
         _identityDbContext = identityDbContext;
     }
 
-    public byte[] GetSalt(Guid userId)
+    public async Task<byte[]> GetSalt(Guid userId)
     {
-        return _identityDbContext.Salts.Single(userSalt => userSalt.UserId == userId).Salt;
+        return (await _identityDbContext.Salts.SingleOrDefaultAsync(userSalt => userSalt.UserId == userId)).Salt;
     }
 
     public async Task SaveSalt(UserSalt salt)
     {
         await _identityDbContext.Salts.AddAsync(salt);
+    }
+
+    public async Task SaveChangesAsync()
+    {
+        await _identityDbContext.SaveChangesAsync();
     }
 }

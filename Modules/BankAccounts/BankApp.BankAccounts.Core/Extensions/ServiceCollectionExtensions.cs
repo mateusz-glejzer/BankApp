@@ -15,6 +15,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddSingleton<ICommandDispatcher, CommandDispatcher>();
         services.AddScoped<ICommandHandler<CreateTransactionCommand>, CreateTransactionCommandHandler>();
+        services.AddScoped<IQueryDispatcher, QueryDispatcher>();
         services.AddScoped<IQueryHandler<GetUserAccountsQuery, IReadOnlyList<Account>>, GetUserAccountsQueryHandler>();
         return services;
     }
