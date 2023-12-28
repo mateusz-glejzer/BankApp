@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using BankApp.BankAccounts.Domain.Accounts.Repository;
+using BankApp.Wallets.Core.Events.Dispatcher;
 using BankApp.Wallets.Core.Events.DomainEvents;
 
 namespace BankApp.Wallets.Core.Commands.CommandHandlers;
@@ -9,12 +10,12 @@ namespace BankApp.Wallets.Core.Commands.CommandHandlers;
 public class CreateTransactionCommandHandler : ICommandHandler<CreateTransactionCommand>
 {
     private readonly IAccountRepository _accountRepository;
-    private readonly IMessageBroker _messageBroker;
+    private readonly IEventDispatcher _eventDispatcher;
 
-    public CreateTransactionCommandHandler(IAccountRepository accountRepository, IMessageBroker messageBroker)
+    public CreateTransactionCommandHandler(IAccountRepository accountRepository, IEventDispatcher eventDispatcher)
     {
         _accountRepository = accountRepository;
-        _messageBroker = messageBroker;
+        _eventDispatcher = eventDispatcher;
     }
 
     public async Task HandleAsync(CreateTransactionCommand command, CancellationToken cancellationToken = default)
@@ -23,6 +24,6 @@ public class CreateTransactionCommandHandler : ICommandHandler<CreateTransaction
         account.CreateTransaction(command.RecipientId, command.Amount);
         var events = account.DomainEvents
             .Select(@event => @event.MapToPublicEvent());
-        await _messageBroker.PublishAsync("transaction-created", events);
+        await _eventDispatcher.DispatchAsync(events, cancellationToken);
     }
 }

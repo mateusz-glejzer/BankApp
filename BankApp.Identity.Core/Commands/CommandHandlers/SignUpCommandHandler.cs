@@ -16,6 +16,6 @@ public class SignUpCommandHandler : ICommandHandler<SignUpCommand>
 
     public async Task HandleAsync(SignUpCommand command, CancellationToken cancellationToken = default)
     {
-        await _identityService.SignUpAsync(command);
+        await _identityService.SignUpAsync(command, cancellationToken);
     }
 }

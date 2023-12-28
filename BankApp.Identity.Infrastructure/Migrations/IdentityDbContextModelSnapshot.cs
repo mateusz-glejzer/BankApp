@@ -23,7 +23,7 @@ namespace BankApp.Identity.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("BankApp.Identity.Core.Models.UserSalt", b =>
+            modelBuilder.Entity("BankApp.Identity.Core.Identity.Models.UserSalt", b =>
                 {
                     b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd()
@@ -52,11 +52,38 @@ namespace BankApp.Identity.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Role")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users", "identity");
+                });
+
+            modelBuilder.Entity("BankApp.Identity.Infrastructure.Outbox.OutboxMessage", b =>
+                {
+                    b.Property<Guid>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("MessageType")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("ProcessedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("SerializedMessage")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Topic")
+                        .HasColumnType("text");
+
+                    b.HasKey("MessageId");
+
+                    b.ToTable("OutboxMessages", "identity");
                 });
 #pragma warning restore 612, 618
         }

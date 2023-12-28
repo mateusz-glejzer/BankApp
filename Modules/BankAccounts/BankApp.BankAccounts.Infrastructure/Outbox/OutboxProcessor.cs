@@ -24,7 +24,7 @@ public class OutboxProcessor : IJob
         var messages = await outbox.GetUnsentAsync();
         foreach (var message in messages.OrderBy(outboxMessage => outboxMessage.SentAt))
         {
-            await _publisher.PublishAsync(message.Topic, message.SerializedMessage, message.MessageId);
+            await _publisher.PublishAsync(message.Topic, message.SerializedMessage);
             await outbox.ProcessAsync(message);
         }
     }

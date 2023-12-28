@@ -17,6 +17,6 @@ public class SignInCommandHandler : ICommandHandler<SignInCommand, Authorization
     public async Task<AuthorizationDto> HandleAsync(SignInCommand command,
         CancellationToken cancellationToken = default)
     {
-        return await _identityService.SignInAsync(command);
+        return await _identityService.SignInAsync(command, cancellationToken);
     }
 }

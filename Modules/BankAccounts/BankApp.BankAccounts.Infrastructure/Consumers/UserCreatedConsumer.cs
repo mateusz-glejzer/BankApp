@@ -19,17 +19,18 @@ public class UserCreatedConsumer : BackgroundService
         _commandDispatcher = commandDispatcher;
         var config = new ConsumerConfig() { BootstrapServers = "localhost:29092", GroupId = "bank_accounts" };
         _consumer = new ConsumerBuilder<Null, string>(config).Build();
-        _consumer.Subscribe("userCreated");
+        _consumer.Subscribe("user-created");
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            var result = _consumer.Consume(stoppingToken);
+            var result = await Task.Run(() => _consumer.Consume(stoppingToken), stoppingToken);
             var message = result.Message;
             var userCreatedEvent = JsonConvert.DeserializeObject<UserCreatedEvent>(message.Value);
-            await _commandDispatcher.SendAsync(new CreateAccountCommand(userCreatedEvent.UserId, Currency.PLN), stoppingToken);
+            await _commandDispatcher.SendAsync(new CreateAccountCommand(userCreatedEvent.UserId, Currency.PLN),
+                stoppingToken);
         }
 
         _consumer.Close();

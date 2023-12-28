@@ -17,7 +17,7 @@ public class KafkaPublisher : IPublisher
     }
 
 
-    public async Task PublishAsync<T>(string topic, T message, Guid messageId) where T : class
+    public async Task PublishAsync<T>(string topic, T message) where T : class
     {
         await _producer.ProduceAsync(topic, new Message<Null, string>
         {

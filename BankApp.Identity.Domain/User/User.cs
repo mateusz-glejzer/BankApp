@@ -1,5 +1,6 @@
 ﻿using System;
 using BankApp.Identity.Domain.Shared;
+using BankApp.Identity.Domain.Shared.Events;
 
 namespace BankApp.Identity.Domain.User;
 
@@ -17,6 +18,10 @@ public class User : DomainEventsSource
         Role = role;
         Password = password;
         CreatedAt = DateTime.UtcNow;
-        Id = Guid.NewGuid();
+        Id = new UserId(Guid.NewGuid());
+        _domainEvents.Enqueue(new UserCreatedEvent
+        {
+            UserId = Id,
+        });
     }
 }

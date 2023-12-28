@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using BankApp.Identity.Domain.Shared.Events;
 using Confluent.Kafka;
 using Newtonsoft.Json;
 
@@ -17,11 +18,11 @@ public class KafkaPublisher : IPublisher
     }
 
 
-    public async Task PublishAsync<T>(string topic, T message, Guid messageId) where T : class
+    public async Task PublishAsync(string topic, string message)
     {
         await _producer.ProduceAsync(topic, new Message<Null, string>
         {
-            Value = JsonConvert.SerializeObject(message),
+            Value = message,
         });
     }
 }
