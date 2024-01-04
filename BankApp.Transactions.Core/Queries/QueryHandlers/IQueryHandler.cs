@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace BankApp.Transactions.Core.Queries.QueryHandlers;
 
-public interface IQueryHandler<in TQuery> where TQuery :
-    class, IQuery
+public interface IQueryHandler<in TQuery, TResult> where TQuery : class, IQuery<TResult>
+
 {
-    Task HandleAsync(TQuery query, CancellationToken cancellationToken = default);
+    Task<TResult> HandleAsync(TQuery query, CancellationToken cancellationToken = default);
 }

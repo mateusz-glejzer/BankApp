@@ -1,8 +1,9 @@
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BankApp.Wallets.Core.Events.EventHandlers;
 
 public interface IEventHandler<in T> where T : IEvent
 {
-    Task HandleAsync(T @event);
+    Task HandleAsync(T @event, CancellationToken cancellationToken);
 }

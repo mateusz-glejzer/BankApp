@@ -3,7 +3,11 @@ using BankApp.BankAccounts.Domain.Accounts;
 using BankApp.Wallets.Core.Commands;
 using BankApp.Wallets.Core.Commands.CommandHandlers;
 using BankApp.Wallets.Core.Events.Dispatcher;
+using BankApp.Wallets.Core.Events.EventHandlers;
+using BankApp.Wallets.Core.Events.EventHandlers.Internal;
+using BankApp.Wallets.Core.Events.IntegrationEvents.Internal;
 using BankApp.Wallets.Core.Queries;
+using BankApp.Wallets.Core.Queries.Dispatcher;
 using BankApp.Wallets.Core.Queries.QueryHandlers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +23,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ICommandHandler<CreateAccountCommand>, CreateAccountCommandHandler>();
         services.AddScoped<IQueryDispatcher, QueryDispatcher>();
         services.AddScoped<IQueryHandler<GetUserAccountsQuery, IReadOnlyList<Account>>, GetUserAccountsQueryHandler>();
-        services.AddScoped<IEventDispatcher, EventDispatcher>();
+        services.AddScoped<IEventHandler<TransactionCreatedIntegrationEvent>, TransactionCreatedIntegrationEventHandler>();
+        services.AddSingleton<IEventDispatcher, EventDispatcher>();
         return services;
     }
 }

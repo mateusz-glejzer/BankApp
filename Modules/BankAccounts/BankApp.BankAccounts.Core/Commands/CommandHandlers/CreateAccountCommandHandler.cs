@@ -23,6 +23,7 @@ public class CreateAccountCommandHandler : ICommandHandler<CreateAccountCommand>
     {
         var newAccount = new Account(command.OwnerId, command.Currency);
         await _accountRepository.AddAccountAsync(newAccount, cancellationToken);
+        await _accountRepository.SaveAsync();
         await _eventDispatcher.DispatchAsync(
             newAccount.DomainEvents.Select(domainEvent => domainEvent.MapToPublicEvent()),
             cancellationToken);

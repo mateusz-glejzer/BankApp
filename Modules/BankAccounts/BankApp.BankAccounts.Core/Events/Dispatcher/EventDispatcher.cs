@@ -28,8 +28,6 @@ public class EventDispatcher : IEventDispatcher
         using var scope = _serviceProvider.CreateScope();
         foreach (var @event in eventList)
         {
-            
-            
             var eventType = @event.GetType();
             var handlerType = typeof(IEventHandler<>).MakeGenericType(eventType);
             var handler = scope.ServiceProvider.GetRequiredService(handlerType);

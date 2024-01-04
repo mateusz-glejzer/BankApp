@@ -27,24 +27,22 @@ public class IdentityModule : IModule
             new EndpointInfo("/login", HttpMethod.Post,
                 async ([FromBody] SignInCommand signInCommand, [FromServices] ICommandDispatcher commandDispatcher) =>
                 await commandDispatcher.SendAsync<SignInCommand, AuthorizationDto>(signInCommand),
-                AuthorizationLevel.Anonymous),
+                AuthorizationLevel.Anonymous, false),
             new EndpointInfo("/register", HttpMethod.Post,
                 async ([FromBody] SignUpCommand signUpCommand, [FromServices] ICommandDispatcher commandDispatcher) =>
                 {
                     await commandDispatcher.SendAsync(signUpCommand);
-                }, AuthorizationLevel.Anonymous),
+                }, AuthorizationLevel.Anonymous, false),
             new EndpointInfo("/refresh-token/use", HttpMethod.Get,
                 ([FromBody] UseRefreshTokenCommand useRefreshTokenCommand,
                         [FromServices] ICommandDispatcher commandDispatcher) =>
-                    commandDispatcher.SendAsync(useRefreshTokenCommand), AuthorizationLevel.Client),
+                    commandDispatcher.SendAsync(useRefreshTokenCommand), AuthorizationLevel.Client, false),
         };
     }
 
     public void Register(IServiceCollection services, IConfiguration configuration)
     {
-        var identityModuleOptions = configuration.GetSection<ModuleOptions>($"{Name}:Options");
-
         services.AddCore();
-        services.AddInfrastructure(identityModuleOptions.Jwt);
+        services.AddInfrastructure(configuration);
     }
 }

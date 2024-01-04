@@ -1,5 +1,6 @@
 ﻿using BankApp.BankAccounts.Domain.Accounts.Repository;
 using BankApp.BankAccounts.Infrastructure.Consumers;
+using BankApp.BankAccounts.Infrastructure.MessageProducers;
 using BankApp.BankAccounts.Infrastructure.Outbox;
 using BankApp.BankAccounts.Infrastructure.Repositories;
 using BankApp.Wallets.Core;
@@ -14,10 +15,10 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        // TODO add connection string for postgresql
+        var connectionString = configuration["ConnectionString"];
         services.AddDbContext<AccountsDbContext>(optionsBuilder =>
             optionsBuilder.UseNpgsql(
-                "Host=localhost; Database=bankApp-modular; Username=postgres;"));
+                connectionString));
         services.AddScoped<IMessageOutbox, MessageOutbox>();
         services.AddScoped<IMessageBroker, MessageBroker>();
         services.AddScoped<IAccountRepository, AccountRepository>();

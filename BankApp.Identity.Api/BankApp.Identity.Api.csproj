@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <RootNamespace>BankApp.Identity.Api</RootNamespace>
         <PackageId>BankApp.Identity.Api</PackageId>
     </PropertyGroup>
@@ -24,9 +24,6 @@
 
     <ItemGroup>
       <None Remove="module.identity.Development.json" />
-      <Content Include="module.identity.Development.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
     </ItemGroup>
 
 </Project>

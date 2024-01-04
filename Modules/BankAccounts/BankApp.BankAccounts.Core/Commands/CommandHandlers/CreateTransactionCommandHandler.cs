@@ -21,7 +21,7 @@ public class CreateTransactionCommandHandler : ICommandHandler<CreateTransaction
     public async Task HandleAsync(CreateTransactionCommand command, CancellationToken cancellationToken = default)
     {
         var account = await _accountRepository.GetAccountByIdAsync(command.AccountId, cancellationToken);
-        account.CreateTransaction(command.RecipientId, command.Amount);
+        account.CreateTransaction(command.RecipientAccountId, command.Amount);
         var events = account.DomainEvents
             .Select(@event => @event.MapToPublicEvent());
         await _eventDispatcher.DispatchAsync(events, cancellationToken);

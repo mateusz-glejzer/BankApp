@@ -2,7 +2,10 @@
 using BankApp.Identity.Core.Identity;
 using BankApp.Identity.Core.Identity.Services;
 using BankApp.Identity.Core.Repositories;
+using BankApp.Identity.Infrastructure.Jwt;
+using BankApp.Identity.Infrastructure.Messages;
 using BankApp.Identity.Infrastructure.Outbox;
+using BankApp.Identity.Infrastructure.Passwords;
 using BankApp.Identity.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,14 +17,11 @@ namespace BankApp.Identity.Infrastructure.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, JwtOptions jwtOptions)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        //TODO add DBContext
-
-        services.AddSingleton(jwtOptions);
+        var connectionString = configuration["ConnectionString"];
         services.AddDbContext<IdentityDbContext>(optionsBuilder =>
-            optionsBuilder.UseNpgsql(
-                "Host=localhost; Database=bankApp-modular; Username=postgres;"));
+            optionsBuilder.UseNpgsql(connectionString));
         services.AddScoped<ISaltRepository, SaltRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IPasswordManager, PasswordManager>();

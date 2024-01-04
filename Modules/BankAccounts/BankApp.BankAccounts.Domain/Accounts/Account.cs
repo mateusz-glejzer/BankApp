@@ -13,12 +13,12 @@ public class Account : DomainEventsSource
     public Currency Currency { get; private set; }
     public AccountState AccountState { get; private set; }
 
-    public Account(UserId userId, Currency currency, AccountId accountId = default)
+    public Account(UserId userId, Currency currency)
     {
         UserId = userId;
         Currency = currency;
         AccountState = AccountState.Active;
-        AccountId = accountId ?? new Guid();
+        AccountId = Guid.NewGuid();
     }
 
     public void BlockAccount()
@@ -34,7 +34,7 @@ public class Account : DomainEventsSource
         _domainEvents.Enqueue(new AccountUnblockedDomainEvent(this));
     }
 
-    public void CreateTransaction(UserId recipient, double amount)
+    public void CreateTransaction(AccountId recipientAccountId, double amount)
     {
         if (AccountState is AccountState.Blocked)
         {
@@ -46,7 +46,7 @@ public class Account : DomainEventsSource
             throw new TransactionAmountIsNotPositiveNumberException();
         }
 
-        var transaction = new Transaction(recipient, UserId, amount, Currency);
+        var transaction = new Transaction(recipientAccountId, AccountId, amount, Currency);
         _domainEvents.Enqueue(
             new TransactionCreatedDomainEvent(AccountId, transaction));
     }

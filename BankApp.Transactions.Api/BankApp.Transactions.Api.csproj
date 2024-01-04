@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <RootNamespace>BankApp.Transactions.Api</RootNamespace>
         <PackageId>BankApp.Transactions.Api</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
     </ItemGroup>
     
     <ItemGroup>
@@ -18,6 +19,8 @@
     
     <ItemGroup>
       <ProjectReference Include="..\BankApp.Shared.Infrastructure\BankApp.Shared.Infrastructure.csproj" />
+      <ProjectReference Include="..\BankApp.Transactions.Core\BankApp.Transactions.Core.csproj" />
+      <ProjectReference Include="..\BankApp.Transactions.Infrastructure\BankApp.Transactions.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

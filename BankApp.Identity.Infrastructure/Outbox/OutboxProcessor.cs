@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using BankApp.Identity.Infrastructure.Messages;
 using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 
