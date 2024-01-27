@@ -1,4 +1,4 @@
-﻿namespace BankApp.Wallets.Core.Events;
+﻿namespace BankApp.BankAccounts.Core.Events;
 
 public interface IEvent
 {

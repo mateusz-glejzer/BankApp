@@ -21,15 +21,6 @@ namespace BankApp.Identity.Infrastructure.Jwt
             _signingCredentials = new SigningCredentials(new SymmetricSecurityKey
                 (Encoding.UTF8.GetBytes(jwtOptions.IssuerSigningKey)), jwtOptions.Algorithm);
             _jwtOptions = jwtOptions;
-            // new TokenValidationParameters()
-            // {
-            //     ValidIssuer = jwtOptions.ValidIssuer,
-            //     IssuerSigningKey = new SymmetricSecurityKey
-            //         (Encoding.UTF8.GetBytes(jwtOptions.IssuerSigningKey)),
-            //     ValidateIssuer = jwtOptions.ValidateIssuer,
-            //     ValidateLifetime = jwtOptions.ValidateLifetime,
-            //     ValidateIssuerSigningKey = jwtOptions.ValidateIssuerSigningKey,
-            // });
         }
 
 

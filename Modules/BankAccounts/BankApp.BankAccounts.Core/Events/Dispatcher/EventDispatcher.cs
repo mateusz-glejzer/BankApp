@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using BankApp.Wallets.Core.Events.EventHandlers;
+using BankApp.BankAccounts.Core.Events.EventHandlers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BankApp.Wallets.Core.Events.Dispatcher;
+namespace BankApp.BankAccounts.Core.Events.Dispatcher;
 
 public class EventDispatcher : IEventDispatcher
 {

@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BankApp.Wallets.Core.Events.EventHandlers;
+namespace BankApp.BankAccounts.Core.Events.EventHandlers;
 
 public interface IEventHandler<in T> where T : IEvent
 {

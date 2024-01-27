@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using BankApp.BankAccounts.Core;
 using BankApp.BankAccounts.Infrastructure.Outbox;
-using BankApp.Wallets.Core;
 
 namespace BankApp.BankAccounts.Infrastructure.MessageProducers;
 

@@ -18,6 +18,6 @@ public class TransactionCreatedEventHandler : IEventHandler<TransactionCreatedEv
     public async Task HandleAsync(TransactionCreatedEvent @event, CancellationToken cancellationToken = default)
     {
         await _transactionsRepository.AddTransactionAsync(@event.Transaction);
-        await _unitOfWork.SaveAsync(cancellationToken);
+        await _unitOfWork.DoAsync(cancellationToken);
     }
 }

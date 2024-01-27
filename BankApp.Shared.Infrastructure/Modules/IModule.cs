@@ -9,7 +9,6 @@ public interface IModule
 {
     string Name { get; }
     string Path { get; }
-    IEnumerable<string> Policies => null;
     void Register(IServiceCollection services, IConfiguration configuration);
     IReadOnlyList<EndpointInfo> GetEndpoints();
 }

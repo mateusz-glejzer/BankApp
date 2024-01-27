@@ -29,7 +29,6 @@ public class MessageOutbox : IMessageOutbox
         await _outboxRepository.SaveChangesAsync();
     }
 
-
     public async Task<IReadOnlyList<OutboxMessage>> GetUnsentAsync()
     {
         return await _outboxRepository.GetUnsentAsync();

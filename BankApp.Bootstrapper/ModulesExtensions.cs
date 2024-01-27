@@ -23,7 +23,7 @@ public static class ModulesExtensions
                 var endpointRoute = module.Path + endpoint.Path;
 
                 RouteAccessAuthorizationLevels.Add(
-                    new RouteInfo(endpointRoute, endpoint.HttpVerb.ToString()),endpoint.Role);
+                    new RouteInfo(endpointRoute, endpoint.HttpVerb.ToString()), endpoint.Role);
                 if (endpoint.Authorize)
                 {
                     endpointRouteBuilder.MapMethods(
@@ -41,11 +41,9 @@ public static class ModulesExtensions
         }
     }
 
-    public static void RegisterModule<TModule>(Func<TModule> moduleFactory = default) where TModule : IModule
+    public static void RegisterModule<TModule>() where TModule : IModule
     {
-        var moduleDefinition = moduleFactory is not null
-            ? moduleFactory()
-            : Activator.CreateInstance<TModule>();
+        var moduleDefinition = Activator.CreateInstance<TModule>();
 
         RegisteredModules.Add(moduleDefinition.Name, moduleDefinition);
     }

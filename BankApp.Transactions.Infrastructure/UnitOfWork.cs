@@ -13,7 +13,7 @@ public class UnitOfWork : IUnitOfWork
         _transactionsDbContext = transactionsDbContext;
     }
 
-    public async Task SaveAsync(CancellationToken cancellationToken)
+    public async Task DoAsync(CancellationToken cancellationToken)
     {
         await _transactionsDbContext.SaveChangesAsync(cancellationToken);
     }

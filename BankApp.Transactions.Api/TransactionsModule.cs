@@ -40,8 +40,6 @@ public class TransactionsModule : IModule
                     await queryDispatcher.GetAsync(new GetTransactionsQuery(new AccountId(AccountId), Page,
                         ItemsPerPage))),
                 AuthorizationLevel.Client),
-            new EndpointInfo("", HttpMethod.Get, () => "", AuthorizationLevel.Client),
-            new EndpointInfo("", HttpMethod.Post, (HttpContext context) => { }, AuthorizationLevel.Client),
         };
     }
 }

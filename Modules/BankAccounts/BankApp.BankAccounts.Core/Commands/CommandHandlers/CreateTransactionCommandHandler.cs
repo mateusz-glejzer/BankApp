@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using BankApp.BankAccounts.Core.Events.Dispatcher;
+using BankApp.BankAccounts.Core.Events.DomainEvents;
 using BankApp.BankAccounts.Domain.Accounts.Repository;
-using BankApp.Wallets.Core.Events.Dispatcher;
-using BankApp.Wallets.Core.Events.DomainEvents;
 
-namespace BankApp.Wallets.Core.Commands.CommandHandlers;
+namespace BankApp.BankAccounts.Core.Commands.CommandHandlers;
 
 public class CreateTransactionCommandHandler : ICommandHandler<CreateTransactionCommand>
 {

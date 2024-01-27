@@ -12,7 +12,6 @@ public class EndpointAuthorizationMiddleware : IMiddleware
 {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        // var routePattern = (context.GetEndpoint() as RouteEndpoint)?.RoutePattern;
         var path = context.Request.Path.ToString().TrimStart('/');
         var method = context.Request.Method;
         var routeKey = new RouteInfo(path, method);

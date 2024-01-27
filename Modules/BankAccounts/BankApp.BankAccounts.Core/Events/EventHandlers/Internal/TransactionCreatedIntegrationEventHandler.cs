@@ -1,10 +1,8 @@
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using BankApp.Wallets.Core.Events.IntegrationEvents.Internal;
-using Newtonsoft.Json;
+using BankApp.BankAccounts.Core.Events.IntegrationEvents.Internal;
 
-namespace BankApp.Wallets.Core.Events.EventHandlers.Internal;
+namespace BankApp.BankAccounts.Core.Events.EventHandlers.Internal;
 
 public class TransactionCreatedIntegrationEventHandler : IEventHandler<TransactionCreatedIntegrationEvent>
 {

@@ -1,9 +1,9 @@
-﻿using BankApp.BankAccounts.Domain.Accounts.Repository;
+﻿using BankApp.BankAccounts.Core;
+using BankApp.BankAccounts.Domain.Accounts.Repository;
 using BankApp.BankAccounts.Infrastructure.Consumers;
 using BankApp.BankAccounts.Infrastructure.MessageProducers;
 using BankApp.BankAccounts.Infrastructure.Outbox;
 using BankApp.BankAccounts.Infrastructure.Repositories;
-using BankApp.Wallets.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

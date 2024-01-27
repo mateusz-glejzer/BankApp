@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using BankApp.Wallets.Core.Commands.CommandHandlers;
+using BankApp.BankAccounts.Core.Commands.CommandHandlers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BankApp.Wallets.Core.Commands;
+namespace BankApp.BankAccounts.Core.Commands;
 
 internal class CommandDispatcher : ICommandDispatcher
 {

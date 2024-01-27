@@ -1,9 +1,8 @@
 ﻿using System;
+using BankApp.BankAccounts.Core.Events.IntegrationEvents.Internal;
 using BankApp.BankAccounts.Domain.Shared.Events;
-using BankApp.Wallets.Core.Events.IntegrationEvents;
-using BankApp.Wallets.Core.Events.IntegrationEvents.Internal;
 
-namespace BankApp.Wallets.Core.Events.DomainEvents;
+namespace BankApp.BankAccounts.Core.Events.DomainEvents;
 
 public static class DomainEventsMapper
 {

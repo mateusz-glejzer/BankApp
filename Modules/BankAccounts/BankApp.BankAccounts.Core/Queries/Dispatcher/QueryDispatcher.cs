@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using BankApp.Wallets.Core.Queries.QueryHandlers;
+using BankApp.BankAccounts.Core.Queries.QueryHandlers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BankApp.Wallets.Core.Queries.Dispatcher;
+namespace BankApp.BankAccounts.Core.Queries.Dispatcher;
 
 public class QueryDispatcher : IQueryDispatcher
 {

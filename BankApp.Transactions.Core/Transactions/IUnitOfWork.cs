@@ -5,5 +5,5 @@ namespace BankApp.Transactions.Core.Transactions;
 
 public interface IUnitOfWork
 {
-    Task SaveAsync(CancellationToken cancellationToken);
+    Task DoAsync(CancellationToken cancellationToken);
 }

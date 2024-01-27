@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace BankApp.Wallets.Core.Queries.QueryHandlers;
+namespace BankApp.BankAccounts.Core.Queries.QueryHandlers;
 
 public interface IQueryHandler<in TQuery, TResponse> where TQuery :
     class, IQuery

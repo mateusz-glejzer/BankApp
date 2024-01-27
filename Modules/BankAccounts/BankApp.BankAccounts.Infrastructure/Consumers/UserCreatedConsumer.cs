@@ -1,8 +1,8 @@
 using System.Threading;
 using System.Threading.Tasks;
+using BankApp.BankAccounts.Core.Commands;
+using BankApp.BankAccounts.Core.Events.IntegrationEvents.External;
 using BankApp.BankAccounts.Domain.Shared;
-using BankApp.Wallets.Core.Commands;
-using BankApp.Wallets.Core.Events.IntegrationEvents.External;
 using Confluent.Kafka;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;

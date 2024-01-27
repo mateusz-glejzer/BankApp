@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace BankApp.Wallets.Core;
+namespace BankApp.BankAccounts.Core;
 
 public interface IMessageBroker
 {

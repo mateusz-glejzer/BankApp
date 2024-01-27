@@ -18,8 +18,7 @@ ModulesExtensions.RegisterModule<IdentityModule>();
 ModulesExtensions.RegisterModule<BankAccountsModule>();
 
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.ConfigureModules();
-// builder.Services.AddOpenTelemetry();
+builder.WebHost.AddModuleConfiguration();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => options.CustomSchemaIds(type => type.ToString()));

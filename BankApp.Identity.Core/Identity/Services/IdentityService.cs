@@ -19,7 +19,6 @@ public class IdentityService : IIdentityService
     private readonly IPasswordManager _passwordManager;
     private readonly IJwtTokenHandler _jwtTokenHandler;
     private readonly IEventDispatcher _eventDispatcher;
-    // private readonly IRefreshTokenService _refreshTokenService;
 
     public IdentityService(IUserRepository userRepository, IPasswordManager passwordManager,
         IJwtTokenHandler jwtTokenHandler, ISaltRepository saltRepository, IEventDispatcher eventDispatcher)
@@ -27,7 +26,6 @@ public class IdentityService : IIdentityService
         _userRepository = userRepository;
         _passwordManager = passwordManager;
         _jwtTokenHandler = jwtTokenHandler;
-        // _refreshTokenService = refreshTokenService;
         _saltRepository = saltRepository;
         _eventDispatcher = eventDispatcher;
     }
@@ -48,7 +46,6 @@ public class IdentityService : IIdentityService
         }
 
         var authorization = _jwtTokenHandler.CreateToken(user.Id, user.Role);
-        // authorization.RefreshToken = await _refreshTokenService.CreateAsync(user.Id.Id);
         return authorization;
     }
 

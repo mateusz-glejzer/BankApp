@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BankApp.Wallets.Core.Events.Dispatcher;
+namespace BankApp.BankAccounts.Core.Events.Dispatcher;
 
 public interface IEventDispatcher
 {

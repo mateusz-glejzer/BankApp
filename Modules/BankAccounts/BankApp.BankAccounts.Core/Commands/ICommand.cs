@@ -1,4 +1,4 @@
-﻿namespace BankApp.Wallets.Core.Commands;
+﻿namespace BankApp.BankAccounts.Core.Commands;
 
 public interface ICommand
 {

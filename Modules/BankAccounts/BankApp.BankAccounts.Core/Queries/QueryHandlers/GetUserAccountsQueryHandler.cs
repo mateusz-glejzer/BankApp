@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using BankApp.BankAccounts.Domain.Accounts;
 using BankApp.BankAccounts.Domain.Accounts.Repository;
 
-namespace BankApp.Wallets.Core.Queries.QueryHandlers;
+namespace BankApp.BankAccounts.Core.Queries.QueryHandlers;
 
 public class GetUserAccountsQueryHandler : IQueryHandler<GetUserAccountsQuery, IReadOnlyList<Account>>
 {

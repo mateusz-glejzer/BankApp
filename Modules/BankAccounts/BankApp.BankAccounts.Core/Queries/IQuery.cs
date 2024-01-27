@@ -1,4 +1,4 @@
-﻿namespace BankApp.Wallets.Core.Queries;
+﻿namespace BankApp.BankAccounts.Core.Queries;
 
 public interface IQuery
 {

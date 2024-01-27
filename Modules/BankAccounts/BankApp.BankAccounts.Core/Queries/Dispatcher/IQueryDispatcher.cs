@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace BankApp.Wallets.Core.Queries.Dispatcher;
+namespace BankApp.BankAccounts.Core.Queries.Dispatcher;
 
 public interface IQueryDispatcher
 {
